@@ -1,0 +1,1 @@
+DB manager: http://sqlitestudio.pl/?act=download
