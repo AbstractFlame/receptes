@@ -1,1 +1,2 @@
 c:\users\sami\documents\visual studio 2015\Projects\ReceptMenedzser\ReceptMenedzser\bin\Debug\ReceptMenedzser.exe.config
+C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\bin\Debug\ReceptMenedzser.exe.config
