@@ -5,20 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="374.394" Width="771.06">
-    <Grid Margin="0,0,2,0">
+        Title="MainWindow" Height="458.894" Width="771.06">
+    <Grid Margin="0,0,2,-17">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="338*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="70*"/>
-            <ColumnDefinition Width="281*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="25.758,10,0,0" Grid.Column="1"/>
-        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="106.758,10,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
-        <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="187.758,10,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
-        <Button x:Name="button4" Content="Button" HorizontalAlignment="Left" Margin="268.758,10,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
-        <Button x:Name="button5" Content="Button" HorizontalAlignment="Left" Margin="349.758,10,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="26,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Height="302" Width="395"/>
-        <Image x:Name="KZK_logo_png" Margin="426,212,10,10" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1"/>
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="302" Margin="0,35,0,0" VerticalAlignment="Top" Width="163" Grid.ColumnSpan="2">
+        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,10,199" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Tortenet" Content="Tortenet" HorizontalAlignment="Right" Margin="0,0,10,123" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Help" Content="Help&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Right" Margin="0,0,10,84" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Modify_Input" Content="Modify/Input" HorizontalAlignment="Right" Margin="0,0,10,163" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,95,17" Grid.Row="1"/>
+        <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="90" Height="62" VerticalAlignment="Bottom" Margin="0,0,0,17"/>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="5,36,0,17" Width="163" Grid.ColumnSpan="2" Grid.Row="1">
             <TreeViewItem Header="Lofasz1">
                 <TreeViewItem Header="Lofasz11">
                     <TreeViewItem Header="Lofasz1">
@@ -57,6 +61,11 @@
                 <TreeViewItem Header="Lofasz32"></TreeViewItem>
             </TreeViewItem>
         </TreeView>
+        <ComboBox x:Name="comboB_GroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.289,-0.807" Height="21" Grid.Row="1"/>
+        <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="120" Height="21" Grid.Row="1"/>
+        <Button x:Name="btn_earchInFoodName" Grid.ColumnSpan="2" Content="Kereses" HorizontalAlignment="Left" Margin="385,11,0,0" VerticalAlignment="Top" Width="75" Height="20" Grid.Row="1"/>
+        <TextBox x:Name="textB_SearchInFoodName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="21" Margin="260,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Kereses Kajanevben" Grid.Row="1"/>
+        <Image x:Name="img_Food" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="72" Margin="675,36,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
 
     </Grid>
 </Window>

@@ -67,5 +67,10 @@ namespace ReceptMenedzser
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Tortenet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
