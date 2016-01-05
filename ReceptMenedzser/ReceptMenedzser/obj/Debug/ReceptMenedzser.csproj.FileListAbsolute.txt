@@ -13,3 +13,6 @@ C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\D
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\ReceptMenedzser.csproj.GenerateResource.Cache
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\ReceptMenedzser.exe
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\ReceptMenedzser.pdb
+d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\bin\Debug\ReceptMenedzser.exe.config
+d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\ReceptMenedzser.exe
+d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\ReceptMenedzser.pdb

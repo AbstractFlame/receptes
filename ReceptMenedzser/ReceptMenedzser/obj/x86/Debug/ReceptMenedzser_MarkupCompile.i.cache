@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\
+d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\obj\x86\Debug\
 ReceptMenedzser
 none
 false
@@ -12,7 +12,7 @@ DEBUG;TRACE
 d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\App.xaml
 11151548125
 
-9-179634268
+9-498300540
 14320336920
 MainWindow.xaml;
 
