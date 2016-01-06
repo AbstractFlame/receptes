@@ -28,5 +28,3 @@ C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\x
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\x86\Debug\ReceptMenedzser.csproj.GenerateResource.Cache
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\x86\Debug\ReceptMenedzser.exe
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\x86\Debug\ReceptMenedzser.pdb
-d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\obj\x86\Debug\LanguageSelectionWindow.g.cs
-d:\GitHub\receptes\ReceptMenedzser\ReceptMenedzser\obj\x86\Debug\LanguageSelectionWindow.baml
