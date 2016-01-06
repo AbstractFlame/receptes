@@ -110,5 +110,10 @@ namespace ReceptMenedzser
         //        this.SQLSubGroupQuery = SQLSubGroupQuery;
         //    }
         //}
+
+        private void Tortenet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
