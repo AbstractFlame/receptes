@@ -55,17 +55,17 @@ namespace ReceptMenedzser
 
         private void FillTreeView()
         {
-            //treeView.Items.Clear(); // TODO: temporarly clear...
+            treeView.Items.Clear(); // TODO: temporarly clear...
 
-            //DataSet cartonDataSet = QueryData("SELECT * FROM T_Karton");
-            //foreach (DataRow dr in cartonDataSet.Tables[0].Rows)
-            //{
-            //    string kartonName = dr[2].ToString();
-            //    string SQLSubGroupQuery = dr[6].ToString();
-            //    //TreeItem treeItem = new TreeItem(kartonName, SQLSubGroupQuery);
-            //    TreeNode level1Node = new TreeNode
-            //    treeView;
-            //}
+            DataSet cartonDataSet = QueryData("SELECT * FROM T_Karton");
+            foreach (DataRow dr in cartonDataSet.Tables[0].Rows)
+            {
+                string kartonName = dr[2].ToString();
+                string SQLSubGroupQuery = dr[6].ToString();
+                //TreeItem treeItem = new TreeItem(kartonName, SQLSubGroupQuery);
+                TreeNode level1Node = new TreeNode
+                treeView;
+            }
         }
 
         private DataSet QueryData(string sql)
