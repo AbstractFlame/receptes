@@ -16,3 +16,5 @@ C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\D
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\bin\Debug\System.Data.SQLite.dll
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\LanguageSelectionWindow.g.cs
 C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\LanguageSelectionWindow.baml
+C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\FoodDetailsWindow.g.cs
+C:\Users\balint\Desktop\Új mappa\receptes\ReceptMenedzser\ReceptMenedzser\obj\Debug\FoodDetailsWindow.baml

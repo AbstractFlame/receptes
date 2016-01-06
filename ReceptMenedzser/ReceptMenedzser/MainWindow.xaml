@@ -16,10 +16,10 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,10,199" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_Tortenet" Content="Tortenet" HorizontalAlignment="Right" Margin="0,0,10,123" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_Help" Content="Help&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Right" Margin="0,0,10,84" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_Modify_Input" Content="Modify/Input" HorizontalAlignment="Right" Margin="0,0,10,163" Width="76" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,10,209" Width="76" Grid.Column="1" Grid.Row="1" Height="29" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,10,133" Width="76" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Help" Content="Help&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Right" Margin="0,0,10,94" Width="76" Grid.Column="1" Grid.Row="1" Height="34" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,10,173" Width="76" Grid.Column="1" Grid.Row="1" Height="31" VerticalAlignment="Bottom"/>
         <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,95,17" Grid.Row="1"/>
         <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="90" Height="62" VerticalAlignment="Bottom" Margin="0,0,0,17"/>
         <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="5,36,0,17" Width="163" Grid.ColumnSpan="2" Grid.Row="1">
@@ -62,10 +62,12 @@
             </TreeViewItem>
         </TreeView>
         <ComboBox x:Name="comboB_GroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.289,-0.807" Height="21" Grid.Row="1"/>
-        <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="120" Height="21" Grid.Row="1"/>
-        <Button x:Name="btn_earchInFoodName" Grid.ColumnSpan="2" Content="Kereses" HorizontalAlignment="Left" Margin="385,11,0,0" VerticalAlignment="Top" Width="75" Height="20" Grid.Row="1"/>
-        <TextBox x:Name="textB_SearchInFoodName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="21" Margin="260,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Kereses Kajanevben" Grid.Row="1"/>
+        <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="120" Height="21" Grid.Row="1"/>
+        <Button x:Name="btn_SearchInFoodName" Grid.ColumnSpan="2" Content="Kereses" HorizontalAlignment="Left" Margin="505,11,0,0" VerticalAlignment="Top" Width="75" Height="20" Grid.Row="1"/>
+        <TextBox x:Name="textB_SearchInFoodName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="21" Margin="380,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Kereses Kajanevben" Grid.Row="1"/>
         <Image x:Name="img_Food" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="72" Margin="675,36,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="comboB_MainIngredientSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="255,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btn_RecipeDetails" Grid.ColumnSpan="2" Content="Recept Adatok" HorizontalAlignment="Right" Margin="0,0,6,243" Grid.RowSpan="2" Width="80" Height="35" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
