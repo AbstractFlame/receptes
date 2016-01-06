@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBManager.cs" />
     <Compile Include="FoodDetailsWindow.xaml.cs">
       <DependentUpon>FoodDetailsWindow.xaml</DependentUpon>
     </Compile>
@@ -102,6 +103,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GroupManager.cs" />
     <Compile Include="LanguageSelectionWindow.xaml.cs">
       <DependentUpon>LanguageSelectionWindow.xaml</DependentUpon>
     </Compile>
