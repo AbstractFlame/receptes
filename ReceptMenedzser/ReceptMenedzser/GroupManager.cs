@@ -11,18 +11,30 @@ namespace ReceptMenedzser
     public class GroupManager
     {
         public enum AlabontasType { NINCS, CSAK_FOCSOPORT, CSAK_ALCSOPORT, FO_ES_AL, OSSZETEVOK };
+        private static TreeItem selectedTreeItem;
 
         private class TreeItem : TreeViewItem
         {
             public string Id;
             public string SQLSubGroupQuery;
             public int level;
-            public TreeItem(string Id, string SQLSubGroupQuery, int level)
+            public TreeItem parentItem;
+            public TreeItem(string Id, string SQLSubGroupQuery, int level, TreeItem parentItem = null)
             {
                 this.Id = Id;
                 this.SQLSubGroupQuery = SQLSubGroupQuery;
                 this.level = level;
+                this.parentItem = parentItem;
             }
+        }
+
+        public string GetSQLQuery(TreeViewItem selectedItem)
+        {
+            TreeItem selectedTreeItem = (TreeItem)selectedItem;
+            if (selectedTreeItem.parentItem != null)
+                return GetSQLQuery(selectedTreeItem.parentItem) + " INTERSECT " + selectedTreeItem.SQLSubGroupQuery;
+            else
+                return selectedTreeItem.SQLSubGroupQuery;
         }
 
         public static void FillTreeView(TreeView treeView)
@@ -70,7 +82,7 @@ namespace ReceptMenedzser
                 string idLevel2 = drLevel2["CS_ID"].ToString();
                 string nameLevel2 = drLevel2["Name"].ToString();
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.group_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -86,7 +98,7 @@ namespace ReceptMenedzser
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
                 string nameLevel2 = drLevel2["Name"].ToString();
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.subgroup_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -102,7 +114,7 @@ namespace ReceptMenedzser
                 string idLevel2 = drLevel2["CS_ID"].ToString();
                 string nameLevel2 = drLevel2["Name"].ToString();
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.group_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -115,7 +127,7 @@ namespace ReceptMenedzser
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
                 string nameLevel2 = drLevel2["Name"].ToString();
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.subgroup_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -131,7 +143,7 @@ namespace ReceptMenedzser
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
                 string nameLevel2 = drLevel2["Name"].ToString();
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -157,7 +169,8 @@ namespace ReceptMenedzser
             {
                 string idLevel3 = drLevel3["SCS_ID"].ToString();
                 string nameLevel3 = drLevel3["Name"].ToString();
-                TreeItem treeItemLevel3 = new TreeItem(idLevel3, "", 3);
+                string SQLSubGroupQueryLevel3 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + drLevel3;
+                TreeItem treeItemLevel3 = new TreeItem(idLevel3, SQLSubGroupQueryLevel3, 3, treeItemLevel2);
                 treeItemLevel3.Header = nameLevel3;
                 treeItemLevel2.Items.Add(treeItemLevel3);
             }
