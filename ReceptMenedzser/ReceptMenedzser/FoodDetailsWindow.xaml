@@ -21,8 +21,8 @@
         <TextBox x:Name="textBox_Completion" HorizontalAlignment="Left" Height="49" Margin="117,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
         <TextBox x:Name="textBox_Remark" HorizontalAlignment="Left" Height="23" Margin="117,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
         <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Left" Margin="250,64,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="250,131,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="533,130,0,0" VerticalAlignment="Top" Height="22" RenderTransformOrigin="5.351,3.273"/>
+        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="250,129,0,0" VerticalAlignment="Top" Height="22"/>
+        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="533,130,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="5.351,3.273"/>
         <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Left" Height="60" Margin="320,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="320,131,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="608,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52"/>

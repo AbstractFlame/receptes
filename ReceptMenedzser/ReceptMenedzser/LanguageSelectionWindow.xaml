@@ -7,12 +7,13 @@
         mc:Ignorable="d" Height="185.514" Width="393.017">
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" VerticalAlignment="Top" Width="61"/>
-        <Label x:Name="label" Content="Copyright Kovács Zoltán" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="148" Height="30" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707"/>
+        <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="-5,141,0,-6" VerticalAlignment="Top" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="8"/>
         <Label x:Name="label1" Content="Please, choose your language:" HorizontalAlignment="Left" Margin="12,70,0,0" VerticalAlignment="Top" FontSize="8"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="135,69,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btn_Ok" Content="Ok" HorizontalAlignment="Left" Margin="285,56,0,0" VerticalAlignment="Top" Width="75" Click="btn_Ok_Click"/>
         <Button x:Name="btn_Quit" Content="Quit" HorizontalAlignment="Left" Margin="285,81,0,0" VerticalAlignment="Top" Width="75" Click="btn_Quit_Click"/>
-        <Label x:Name="label2" Content="Language Selection" HorizontalAlignment="Left" Margin="143,0,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Language Selection" HorizontalAlignment="Left" Margin="143,5,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="Cook_bmp" Margin="10,10,331,105" Source="Cook.bmp" Stretch="Fill"/>
 
     </Grid>
 </Window>

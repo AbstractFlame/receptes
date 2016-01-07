@@ -99,15 +99,11 @@ namespace ReceptMenedzser
             UpdateDataGrid(query);
         }
 
-        private void textB_SearchInFoodName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            textB_SearchInFoodName.Text = "";
-        }
-
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
             foodDetailsWindow.Show();
         }
+
     }
 }
