@@ -17,11 +17,16 @@ namespace ReceptMenedzser
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class FoodDetailsWindow : Window
     {
-        public Window1()
+        public FoodDetailsWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

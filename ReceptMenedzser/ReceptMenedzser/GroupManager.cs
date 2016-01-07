@@ -11,7 +11,6 @@ namespace ReceptMenedzser
     public class GroupManager
     {
         public enum AlabontasType { NINCS, CSAK_FOCSOPORT, CSAK_ALCSOPORT, FO_ES_AL, OSSZETEVOK };
-        private static TreeItem selectedTreeItem;
 
         private class TreeItem : TreeViewItem
         {
@@ -28,7 +27,7 @@ namespace ReceptMenedzser
             }
         }
 
-        public string GetSQLQuery(TreeViewItem selectedItem)
+        public static string GetSQLQuery(TreeViewItem selectedItem)
         {
             TreeItem selectedTreeItem = (TreeItem)selectedItem;
             if (selectedTreeItem.parentItem != null)

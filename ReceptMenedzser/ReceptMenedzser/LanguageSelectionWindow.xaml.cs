@@ -19,9 +19,30 @@ namespace ReceptMenedzser
     /// </summary>
     public partial class LanguageSelectionWindow : Window
     {
+        public static string lang;
+
         public LanguageSelectionWindow()
         {
             InitializeComponent();
+
+            comboBox.Items.Add("Magyar");
+            comboBox.Items.Add("English");
+            comboBox.Items.Add("Deutsch");
+            comboBox.Items.Add("Slovensky");
+            comboBox.SelectedIndex = 0;
+        }
+
+        private void btn_Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btn_Ok_Click(object sender, RoutedEventArgs e)
+        {
+            lang = comboBox.SelectedItem.ToString();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

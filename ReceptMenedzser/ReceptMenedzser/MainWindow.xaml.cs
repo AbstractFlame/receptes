@@ -31,9 +31,31 @@ namespace ReceptMenedzser
             DBManager.ConnectToSQLiteDB(@" Data Source=receptek.db; Version=3;");
             UpdateDataGrid("select * from recept");
             GroupManager.FillTreeView(treeView);
+            FillFilterBar();
         }
 
-        public void UpdateDataGrid(string sql)
+        private void FillFilterBar()
+        {
+            // Group select
+            DataSet dataSet = DBManager.QueryData("SELECT * FROM T_Group");
+            comboB_GroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_GroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["CS_ID"].ToString();
+
+            // Subgroup select
+            dataSet = DBManager.QueryData("SELECT * FROM T_Subgroup");
+            comboB_SubGroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_SubGroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
+
+            // Subgroup select
+            dataSet = DBManager.QueryData("SELECT * FROM T_Ingredient");
+            comboB_MainIngredientSelect.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_MainIngredientSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
+        }
+
+        private void UpdateDataGrid(string sql)
         {
             try
             {
@@ -51,6 +73,41 @@ namespace ReceptMenedzser
         private void Tortenet_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btn_SearchInFoodName_Click(object sender, RoutedEventArgs e)
+        {
+            string keywords = textB_SearchInFoodName.Text;
+            string groupId = comboB_GroupSelect.SelectedValue != null ? comboB_GroupSelect.SelectedValue.ToString() : "";
+            string subGroupId = comboB_SubGroupSelect.SelectedValue != null ? comboB_SubGroupSelect.SelectedValue.ToString() : "";
+            string ingredientId = comboB_MainIngredientSelect.SelectedValue != null ? comboB_MainIngredientSelect.SelectedValue.ToString() : "";
+            string query = "SELECT * FROM recept WHERE";
+            query += " name '%" + keywords + "'%";
+            if (groupId != "")
+                query += " AND group_id=" + groupId;
+            if(subGroupId != "")
+                query += " AND subgroup_id=" + subGroupId;
+            if(ingredientId != "")
+                query += " AND fo_osszetevo_id=" + ingredientId;
+
+            UpdateDataGrid(query);
+        }
+
+        private void treeView_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            string query = GroupManager.GetSQLQuery((TreeViewItem)treeView.SelectedItem);
+            UpdateDataGrid(query);
+        }
+
+        private void textB_SearchInFoodName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textB_SearchInFoodName.Text = "";
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
+            foodDetailsWindow.Show();
         }
     }
 }
