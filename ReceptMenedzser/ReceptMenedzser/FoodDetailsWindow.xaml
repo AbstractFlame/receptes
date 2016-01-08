@@ -8,21 +8,21 @@
     <Grid>
         <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="560,21,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="label_FoodFullName" Content="Food FUll name" HorizontalAlignment="Left" Margin="25,15,0,0" VerticalAlignment="Top" Height="44" Width="308" FontSize="16" Foreground="#FFE20707"/>
-        <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,65,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="25,113,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Ingredients" Content="Ingredients:&#xA;" HorizontalAlignment="Left" Margin="25,157,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Completion" Content="Completion:&#xA;" HorizontalAlignment="Left" Margin="25,224,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Remark" Content="Remark:&#xA;" HorizontalAlignment="Left" Margin="25,293,0,0" VerticalAlignment="Top" Height="22"/>
+        <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,65,0,0" VerticalAlignment="Top" Height="36"/>
+        <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top" Height="31"/>
+        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="25,113,0,0" VerticalAlignment="Top" Height="32"/>
+        <Label x:Name="label_Ingredients" Content="Ingredients:&#xA;" HorizontalAlignment="Left" Margin="25,157,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label x:Name="label_Completion" Content="Completion:&#xA;" HorizontalAlignment="Left" Margin="25,224,0,0" VerticalAlignment="Top" Height="44"/>
+        <Label x:Name="label_Remark" Content="Remark:&#xA;" HorizontalAlignment="Left" Margin="25,293,0,0" VerticalAlignment="Top" Height="42"/>
         <TextBox x:Name="textBox_Group" HorizontalAlignment="Left" Height="23" Margin="125,65,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_SubGroup" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_MainIngredient" HorizontalAlignment="Left" Height="23" Margin="125,113,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_Ingredients" HorizontalAlignment="Left" Height="60" Margin="117,159,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
         <TextBox x:Name="textBox_Completion" HorizontalAlignment="Left" Height="49" Margin="117,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
         <TextBox x:Name="textBox_Remark" HorizontalAlignment="Left" Height="23" Margin="117,293,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
-        <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Left" Margin="250,64,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="250,129,0,0" VerticalAlignment="Top" Height="22"/>
-        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="533,130,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="5.351,3.273"/>
+        <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Left" Margin="250,64,0,0" VerticalAlignment="Top" Height="40"/>
+        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="250,129,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="533,130,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="5.351,3.273"/>
         <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Left" Height="60" Margin="320,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="320,131,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="608,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52"/>
