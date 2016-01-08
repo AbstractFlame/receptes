@@ -26,25 +26,30 @@ namespace ReceptMenedzser
             }
         }
 
-        public static void QueryCommand(string sql)
+        public static int QueryCommand(string sql)
         {
             if (!isConnected)
                 throw new Exception("Not connected");
 
+            int affectedRows = 0;
             try
             {
                 sqLite_Con.Open();
-                SQLiteCommand sql_cmd = new SQLiteCommand(sql, sqLite_Con);
-                sql_cmd.ExecuteNonQuery();
+                SQLiteCommand sql_cmd = sqLite_Con.CreateCommand();
+                sql_cmd.CommandText = sql;
+                affectedRows = sql_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show("at QueryCommand: " + ex.Message);
+                affectedRows = 0;
             }
             finally
             {
                 sqLite_Con.Close();
             }
+
+            return affectedRows;
         }
 
         public static DataSet QueryDataSet(string sql)
