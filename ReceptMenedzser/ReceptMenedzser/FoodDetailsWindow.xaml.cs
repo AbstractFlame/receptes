@@ -28,7 +28,7 @@ namespace ReceptMenedzser
             DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + MainWindow.selectedRecipeId);
             DataRow receptDataRow = dataSet.Tables[0].Rows[0];
 
-            label_FoodFullName.Content = receptDataRow["name"].ToString();
+            textBlock_FoodFUllName.Text = receptDataRow["name"].ToString();
             textBox_Group.Text = LanguageManager.TranslateGroup(receptDataRow["group_id"].ToString());
             textBox_SubGroup.Text = LanguageManager.TranslateSubGroup(receptDataRow["subgroup_id"].ToString());
             textBox_MainIngredient.Text = LanguageManager.TranslateIngredient(receptDataRow["fo_osszetevo_id"].ToString());

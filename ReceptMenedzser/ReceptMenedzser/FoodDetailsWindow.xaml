@@ -7,7 +7,6 @@
         mc:Ignorable="d" Height="477.539" Width="691.923" Topmost="True" ShowInTaskbar="False" Icon="Cook.ico">
     <Grid>
         <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="560,21,0,0" VerticalAlignment="Top" Width="100" Source="KZK_logo.png"/>
-        <Label x:Name="label_FoodFullName" Content="Food FUll name" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Height="68" Width="431" FontSize="14.667" Foreground="#FFE20707"/>
         <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,65,0,0" VerticalAlignment="Top" Height="36"/>
         <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top" Height="31"/>
         <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="25,113,0,0" VerticalAlignment="Top" Height="32"/>
@@ -27,6 +26,7 @@
         <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="326,131,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="608,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52"/>
         <Button x:Name="btn_Back" Content="Back" HorizontalAlignment="Left" Margin="461,39,0,0" VerticalAlignment="Top" Width="75" Click="btn_Back_Click"/>
+        <TextBlock x:Name="textBlock_FoodFUllName" HorizontalAlignment="Left" Margin="25,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFF50D0D" Height="64" Width="390" FontSize="16"/>
 
     </Grid>
 </Window>
