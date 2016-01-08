@@ -12,7 +12,7 @@ namespace ReceptMenedzser
         public enum Lang {HUNGARIAN, ENGLISH, GERMAN, SLOVENSKY};
         public static Lang currentLang;
 
-        public static string TranslateFromDictionary(string english)
+        public static string TranslateFromDictionary(string dictionary_id)
         {
             string expectedLang;
             switch (currentLang)
@@ -22,7 +22,6 @@ namespace ReceptMenedzser
                     break;
                 case LanguageManager.Lang.ENGLISH:
                     expectedLang = "english";
-
                     break;
                 case LanguageManager.Lang.GERMAN:
                     expectedLang = "deutsch";
@@ -34,12 +33,90 @@ namespace ReceptMenedzser
                     expectedLang = "magyar";
                     break;
             }
-            string sql = "SELECT " + expectedLang + " FROM dictionary WHERE english='" + english + "'";
+            string sql = "SELECT " + expectedLang + " FROM dictionary WHERE dic_id='" + dictionary_id + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
 
-        public static string TranslateGroup(string english)
+        public static string TranslateCarton(string CartonId)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "KartonNev";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "KartonNev_en";
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "KartonNev_de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "KartonNev_sk";
+                    break;
+                default:
+                    expectedLang = "KartonNev";
+                    break;
+            }
+            string sql = "SELECT " + expectedLang + " FROM T_Karton_UJ WHERE Karton_ID='" + CartonId + "'";
+            DataSet dataSet = DBManager.QueryDataSet(sql);
+            return dataSet.Tables[0].Rows[0][0].ToString();
+        }
+
+        public static string TranslateGroup(string groupId)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "Desc";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "Desc_en";
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "Desc_de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "Desc_sk";
+                    break;
+                default:
+                    expectedLang = "Desc";
+                    break;
+            }
+            string sql = "SELECT " + expectedLang + " FROM T_Group WHERE CS_ID='" + groupId + "'";
+            DataSet dataSet = DBManager.QueryDataSet(sql);
+            return dataSet.Tables[0].Rows[0][0].ToString();
+        }
+
+        public static string TranslateSubGroup(string subGroupId)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "Desc";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "Desc_en";
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "Desc_de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "Desc_sk";
+                    break;
+                default:
+                    expectedLang = "Desc";
+                    break;
+            }
+            string sql = "SELECT " + expectedLang + " FROM T_Subgroup WHERE SCS_ID='" + subGroupId + "'";
+            DataSet dataSet = DBManager.QueryDataSet(sql);
+            return dataSet.Tables[0].Rows[0][0].ToString();
+        }
+
+        public static string TranslateIngredient(string ingredientId)
         {
             string expectedLang;
             switch (currentLang)
@@ -61,61 +138,7 @@ namespace ReceptMenedzser
                     expectedLang = "Desc";
                     break;
             }
-            string sql = "SELECT " + expectedLang + " FROM T_Group WHERE Desc_en='" + english + "'";
-            DataSet dataSet = DBManager.QueryDataSet(sql);
-            return dataSet.Tables[0].Rows[0][0].ToString();
-        }
-
-        public static string TranslateSubGroup(string english)
-        {
-            string expectedLang;
-            switch (currentLang)
-            {
-                case LanguageManager.Lang.HUNGARIAN:
-                    expectedLang = "Desc";
-                    break;
-                case LanguageManager.Lang.ENGLISH:
-                    expectedLang = "Desc_en";
-
-                    break;
-                case LanguageManager.Lang.GERMAN:
-                    expectedLang = "Desc_de";
-                    break;
-                case LanguageManager.Lang.SLOVENSKY:
-                    expectedLang = "Desc_sk";
-                    break;
-                default:
-                    expectedLang = "Desc";
-                    break;
-            }
-            string sql = "SELECT " + expectedLang + " FROM T_Subgroup WHERE Desc_en='" + english + "'";
-            DataSet dataSet = DBManager.QueryDataSet(sql);
-            return dataSet.Tables[0].Rows[0][0].ToString();
-        }
-
-        public static string TranslateIngredient(string english)
-        {
-            string expectedLang;
-            switch (currentLang)
-            {
-                case LanguageManager.Lang.HUNGARIAN:
-                    expectedLang = "Desc";
-                    break;
-                case LanguageManager.Lang.ENGLISH:
-                    expectedLang = "Desc_en";
-
-                    break;
-                case LanguageManager.Lang.GERMAN:
-                    expectedLang = "Desc_de";
-                    break;
-                case LanguageManager.Lang.SLOVENSKY:
-                    expectedLang = "Desc_sk";
-                    break;
-                default:
-                    expectedLang = "Desc";
-                    break;
-            }
-            string sql = "SELECT " + expectedLang + " FROM T_Ingredient WHERE Desc_en='" + english + "'";
+            string sql = "SELECT " + expectedLang + " FROM T_Ingredient WHERE SCS_ID='" + ingredientId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
