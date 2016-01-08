@@ -41,7 +41,8 @@ namespace ReceptMenedzser
                 }
             }
             QueryString = QueryString.Remove(QueryString.Length - 1);
-            MessageBox.Show(QueryString);
+            //MessageBox.Show(QueryString);
+            DBManager.QueryCommand(QueryString);
             xlWorkBook.Close(true, null, null);
             xlApp.Quit();
         }
