@@ -168,7 +168,7 @@ namespace ReceptMenedzser
             {
                 string idLevel3 = drLevel3["SCS_ID"].ToString();
                 string nameLevel3 = LanguageManager.TranslateIngredient(idLevel3);
-                string SQLSubGroupQueryLevel3 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + drLevel3;
+                string SQLSubGroupQueryLevel3 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + idLevel3;
                 TreeItem treeItemLevel3 = new TreeItem(idLevel3, SQLSubGroupQueryLevel3, 3, treeItemLevel2);
                 treeItemLevel3.Header = nameLevel3;
                 treeItemLevel2.Items.Add(treeItemLevel3);
