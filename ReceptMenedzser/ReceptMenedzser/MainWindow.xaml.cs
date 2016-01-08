@@ -136,5 +136,11 @@ namespace ReceptMenedzser
         {
             FormatDataGrid();
         }
+
+        private void btn_History_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow win = new HistoryWindow();
+            win.Show();
+        }
     }
 }

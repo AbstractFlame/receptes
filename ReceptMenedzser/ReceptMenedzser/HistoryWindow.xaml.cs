@@ -17,11 +17,16 @@ namespace ReceptMenedzser
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class HistoryWindow : Window
     {
-        public Window1()
+        public HistoryWindow()
         {
-            InitializeComponent();
+          InitializeComponent();
+        }
+
+        private void btw_BackFromHistoryWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
