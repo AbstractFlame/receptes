@@ -59,19 +59,19 @@ namespace ReceptMenedzser
         private void FillFilterBar()
         {
             // Group select
-            DataSet dataSet = DBManager.QueryData("SELECT * FROM T_Group");
+            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM T_Group");
             comboB_GroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
             comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
             comboB_GroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["CS_ID"].ToString();
 
             // Subgroup select
-            dataSet = DBManager.QueryData("SELECT * FROM T_Subgroup");
+            dataSet = DBManager.QueryDataSet("SELECT * FROM T_Subgroup");
             comboB_SubGroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
             comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
             comboB_SubGroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
 
             // Subgroup select
-            dataSet = DBManager.QueryData("SELECT * FROM T_Ingredient");
+            dataSet = DBManager.QueryDataSet("SELECT * FROM T_Ingredient");
             comboB_MainIngredientSelect.ItemsSource = dataSet.Tables[0].DefaultView;
             comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
             comboB_MainIngredientSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
@@ -81,7 +81,7 @@ namespace ReceptMenedzser
         {
             try
             {
-                DataSet recipesDataSet = DBManager.QueryData(sql);
+                DataSet recipesDataSet = DBManager.QueryDataSet(sql);
                 DataView dataView = new DataView(recipesDataSet.Tables[0]);
                 dataGrid.ItemsSource = dataView;
             }
@@ -123,11 +123,7 @@ namespace ReceptMenedzser
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataRowView dataRow = (DataRowView)dataGrid.SelectedItem;
-            selectedRecipeId = dataRow.Row.ItemArray[0].ToString();
-            System.Windows.MessageBox.Show(selectedRecipeId);
-            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
-            foodDetailsWindow.Show();
+            OpenFoodDetailWindow();
         }
 
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
@@ -140,6 +136,20 @@ namespace ReceptMenedzser
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             FormatDataGrid();
+        }
+
+        private void btn_RecipeDetails_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFoodDetailWindow();
+        }
+
+        private void OpenFoodDetailWindow()
+        {
+            DataRowView dataRow = (DataRowView)dataGrid.SelectedItem;
+            selectedRecipeId = dataRow.Row.ItemArray[0].ToString();
+            System.Windows.MessageBox.Show(selectedRecipeId);
+            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
+            foodDetailsWindow.Show();
         }
     }
 }

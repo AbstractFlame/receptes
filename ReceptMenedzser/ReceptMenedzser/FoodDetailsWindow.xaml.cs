@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace ReceptMenedzser
 {
@@ -22,6 +23,9 @@ namespace ReceptMenedzser
         public FoodDetailsWindow()
         {
             InitializeComponent();
+
+            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + MainWindow.selectedRecipeId);
+            MessageBox.Show(dataSet.Tables.Count.ToString());
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)

@@ -26,7 +26,28 @@ namespace ReceptMenedzser
             }
         }
 
-        public static DataSet QueryData(string sql)
+        public static void QueryCommand(string sql)
+        {
+            if (!isConnected)
+                throw new Exception("Not connected");
+
+            try
+            {
+                sqLite_Con.Open();
+                SQLiteCommand sql_cmd = sqLite_Con.CreateCommand();
+                sql_cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("at QueryCommand: " + ex.Message);
+            }
+            finally
+            {
+                sqLite_Con.Close();
+            }
+        }
+
+        public static DataSet QueryDataSet(string sql)
         {
             if(!isConnected)
                 throw new Exception("Not connected");
@@ -42,7 +63,7 @@ namespace ReceptMenedzser
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("at QueryData: " + ex.Message);
+                System.Windows.MessageBox.Show("at QueryDataSet: " + ex.Message);
                 return null;
             }
             finally

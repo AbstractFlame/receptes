@@ -105,6 +105,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GroupManager.cs" />
+    <Compile Include="LanguageManager.cs" />
     <Compile Include="LanguageSelectionWindow.xaml.cs">
       <DependentUpon>LanguageSelectionWindow.xaml</DependentUpon>
     </Compile>

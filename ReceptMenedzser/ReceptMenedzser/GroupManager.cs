@@ -40,7 +40,7 @@ namespace ReceptMenedzser
         {
             treeView.Items.Clear(); // TODO: temporarly clear...
 
-            DataSet cartonDataSet = DBManager.QueryData("SELECT * FROM T_Karton_UJ");
+            DataSet cartonDataSet = DBManager.QueryDataSet("SELECT * FROM T_Karton_UJ");
             foreach (DataRow drLevel1 in cartonDataSet.Tables[0].Rows)
             {
                 string id = drLevel1[0].ToString();
@@ -75,7 +75,7 @@ namespace ReceptMenedzser
 
         private static void CsakFo(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryData("SELECT T_Group.Desc AS Name, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Group.Desc AS Name, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["CS_ID"].ToString();
@@ -91,7 +91,7 @@ namespace ReceptMenedzser
 
         private static void CsakAl(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryData("SELECT T_Subgroup.Desc AS Name, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.subgroup_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Subgroup.Desc AS Name, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.subgroup_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
@@ -107,7 +107,7 @@ namespace ReceptMenedzser
 
         private static void FoEsAl(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryData("SELECT T_Group.Desc AS Name, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Group.Desc AS Name, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["CS_ID"].ToString();
@@ -120,7 +120,7 @@ namespace ReceptMenedzser
                 treeItemLevel1.Items.Add(treeItemLevel2);
             }
 
-            level2Dataset = DBManager.QueryData("SELECT T_Subgroup.Desc AS Name, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
+            level2Dataset = DBManager.QueryDataSet("SELECT T_Subgroup.Desc AS Name, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
@@ -136,7 +136,7 @@ namespace ReceptMenedzser
 
         private static void Osszetevok(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryData("SELECT T_Ingredient.Desc AS Name, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Ingredient.Desc AS Name, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
@@ -156,14 +156,14 @@ namespace ReceptMenedzser
             if (SQLMasodikAlabontas == "")
                 return false;
 
-            DataSet dataSet = DBManager.QueryData("SELECT * FROM (" + SQLMasodikAlabontas + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = " + subgroupId + " GROUP BY T_Subgroup.SCS_ID");
+            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM (" + SQLMasodikAlabontas + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = " + subgroupId + " GROUP BY T_Subgroup.SCS_ID");
             return dataSet.Tables[0].Rows.Count > 0;
         }
 
         // csak subgroup esetén működik helyesen!
         private static void BuildLevel3(TreeItem treeItemLevel2, string SQLSubGroupQueryLevel2)
         {
-            DataSet level3Dataset = DBManager.QueryData("SELECT T_Ingredient.Desc AS Name, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQueryLevel2 + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
+            DataSet level3Dataset = DBManager.QueryDataSet("SELECT T_Ingredient.Desc AS Name, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQueryLevel2 + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
             foreach (DataRow drLevel3 in level3Dataset.Tables[0].Rows)
             {
                 string idLevel3 = drLevel3["SCS_ID"].ToString();

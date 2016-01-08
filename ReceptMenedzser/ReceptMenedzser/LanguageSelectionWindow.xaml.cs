@@ -19,8 +19,6 @@ namespace ReceptMenedzser
     /// </summary>
     public partial class LanguageSelectionWindow : Window
     {
-        public static string lang;
-
         public LanguageSelectionWindow()
         {
             InitializeComponent();
@@ -39,7 +37,21 @@ namespace ReceptMenedzser
 
         private void btn_Ok_Click(object sender, RoutedEventArgs e)
         {
-            lang = comboBox.SelectedItem.ToString();
+            switch(comboBox.SelectedItem.ToString())
+            {
+                case "Magyar":
+                    LanguageManager.schosenLang = LanguageManager.Lang.HUNGARIAN;
+                    break;
+                case "English":
+                    LanguageManager.schosenLang = LanguageManager.Lang.ENGLISH;
+                    break;
+                case "Deutsch":
+                    LanguageManager.schosenLang = LanguageManager.Lang.GERMAN;
+                    break;
+                case "Slovensky":
+                    LanguageManager.schosenLang = LanguageManager.Lang.SLOVENSKY;
+                    break;
+            }
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
