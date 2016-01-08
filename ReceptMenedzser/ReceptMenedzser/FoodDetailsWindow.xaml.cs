@@ -37,20 +37,21 @@ namespace ReceptMenedzser
             textBox_Remark.Text = receptDataRow["com"].ToString();
             textBox_Preparation.Text = receptDataRow["prep"].ToString();
             textBox_Picture.Text = receptDataRow["foodpic"].ToString();
-            textBox_Language.Text = LanguageManager.TranslateGroup(receptDataRow["lang"].ToString());
+            textBox_Language.Text = receptDataRow["lang"].ToString();
+            //image_FoodImageInDetailsWindow.
 
             // STATIKUS LABELEK NYELVESITESE
 
             //btn_Back.Content = LanguageManager.TranslateFromDictionary("20");
-            label_Group.Content = LanguageManager.TranslateGroup("20");
-            label_SubGroup.Content = LanguageManager.TranslateGroup("21");
-            label_MainIngredient.Content = LanguageManager.TranslateGroup("22");
-            label_Ingredients.Content = LanguageManager.TranslateGroup("23");
-            label_Completion.Content = LanguageManager.TranslateGroup("11");
-            label_Remark.Content = LanguageManager.TranslateGroup("12");
-            label_Preparation.Content = LanguageManager.TranslateGroup("10");
-            label_Picture.Content = LanguageManager.TranslateGroup("56");
-            label_Language.Content = LanguageManager.TranslateGroup("57");
+            label_Group.Content = LanguageManager.TranslateFromDictionary("20");
+            label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
+            label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");
+            label_Ingredients.Content = LanguageManager.TranslateFromDictionary("23");
+            label_Completion.Content = LanguageManager.TranslateFromDictionary("11");
+            label_Remark.Content = LanguageManager.TranslateFromDictionary("12");
+            label_Preparation.Content = LanguageManager.TranslateFromDictionary("10");
+            label_Picture.Content = LanguageManager.TranslateFromDictionary("56");
+            label_Language.Content = LanguageManager.TranslateFromDictionary("57");
 
         }
 

@@ -8,7 +8,7 @@
         Title="Window1" Height="462.727" Width="360">
     <Grid>
         <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="0,412,0,0" VerticalAlignment="Top" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="8"/>
-        <Label x:Name="label_71" Content="Revision" HorizontalAlignment="Left" Margin="29,0,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
+        <Label x:Name="label_71" Content="Revision" HorizontalAlignment="Left" Margin="29,0,0,0" VerticalAlignment="Top" Foreground="#FFF70707" FontSize="16"/>
         <Label x:Name="label_72" Content="Revision" HorizontalAlignment="Left" Margin="29,48,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
         <Label x:Name="label_73" Content="Revision" HorizontalAlignment="Left" Margin="29,71,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
         <Label x:Name="label_74" Content="Revision" HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
@@ -24,7 +24,7 @@
         <Label x:Name="label_109" Content="Revision" HorizontalAlignment="Left" Margin="29,324,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
         <Label x:Name="label_115" Content="Revision" HorizontalAlignment="Left" Margin="29,347,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
         <Label x:Name="label_116" Content="Revision" HorizontalAlignment="Left" Margin="29,370,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
-        <Button x:Name="btn_BackFromHistoryWindow" Content="Button" HorizontalAlignment="Left" Margin="259,393,0,0" VerticalAlignment="Top" Width="75" Click="btw_BackFromHistoryWindow_Click"/>
+        <Button x:Name="btn_BackFromHistoryWindow" Content="Vissza" HorizontalAlignment="Left" Margin="259,393,0,0" VerticalAlignment="Top" Width="75" Click="btw_BackFromHistoryWindow_Click"/>
 
 
     </Grid>
