@@ -105,5 +105,11 @@ namespace ReceptMenedzser
             foodDetailsWindow.Show();
         }
 
+        private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
+        {
+            ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "/Receptek.xls");
+            // TODO make it multilungal!
+            System.Windows.MessageBox.Show("Az importálás sikeresen befejeződött!");
+        }
     }
 }

@@ -17,7 +17,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,6,213" Width="80" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,6,213" Width="80" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Click="btn_Excel_Import_Click"/>
         <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,6,133" Width="80" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom"/>
         <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,6,94" Width="80" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom"/>
         <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,6,173" Width="80" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom"/>
