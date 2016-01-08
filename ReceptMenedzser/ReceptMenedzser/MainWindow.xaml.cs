@@ -104,10 +104,12 @@ namespace ReceptMenedzser
 
         private string FinalizeSQLForGrid(string sql)
         {
-            System.Windows.MessageBox.Show(sql);
+            string languageFilteredSQL = LanguageManager.FilterSQL(sql);
+
             string finalSql  = "SELECT ";
             finalSql += "rid, name, acc, prep, desc, com ";
-            finalSql += "FROM (" + sql + ")";
+            finalSql += "FROM (" + languageFilteredSQL + ")";
+
             return finalSql;
         }
 

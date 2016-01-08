@@ -12,6 +12,31 @@ namespace ReceptMenedzser
         public enum Lang {HUNGARIAN, ENGLISH, GERMAN, SLOVENSKY};
         public static Lang currentLang;
 
+        public static string FilterSQL(string sql)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "hu";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "en";
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "sk";
+                    break;
+                default:
+                    expectedLang = "magyar";
+                    break;
+            }
+
+            return "SELECT * FROM (" + sql + ") WHERE lang='" + expectedLang + "'";
+        }
+
         public static string TranslateFromDictionary(string dictionary_id)
         {
             string expectedLang;
@@ -33,8 +58,10 @@ namespace ReceptMenedzser
                     expectedLang = "magyar";
                     break;
             }
+
             string sql = "SELECT " + expectedLang + " FROM dictionary WHERE dic_id='" + dictionary_id + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
+
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
 
@@ -59,8 +86,10 @@ namespace ReceptMenedzser
                     expectedLang = "KartonNev";
                     break;
             }
+
             string sql = "SELECT " + expectedLang + " FROM T_Karton_UJ WHERE Karton_ID='" + CartonId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
+
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
 
@@ -85,8 +114,10 @@ namespace ReceptMenedzser
                     expectedLang = "Desc";
                     break;
             }
+
             string sql = "SELECT " + expectedLang + " FROM T_Group WHERE CS_ID='" + groupId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
+
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
 
@@ -111,8 +142,10 @@ namespace ReceptMenedzser
                     expectedLang = "Desc";
                     break;
             }
+
             string sql = "SELECT " + expectedLang + " FROM T_Subgroup WHERE SCS_ID='" + subGroupId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
+
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
 
@@ -138,8 +171,10 @@ namespace ReceptMenedzser
                     expectedLang = "Desc";
                     break;
             }
+
             string sql = "SELECT " + expectedLang + " FROM T_Ingredient WHERE SCS_ID='" + ingredientId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
+
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
     }
