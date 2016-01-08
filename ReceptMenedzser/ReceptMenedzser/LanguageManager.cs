@@ -38,5 +38,86 @@ namespace ReceptMenedzser
             DataSet dataSet = DBManager.QueryDataSet(sql);
             return dataSet.Tables[0].Rows[0][0].ToString();
         }
+
+        public static string TranslateGroup(string english)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "Desc";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "Desc_en";
+
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "Desc_de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "Desc_sk";
+                    break;
+                default:
+                    expectedLang = "Desc";
+                    break;
+            }
+            string sql = "SELECT " + expectedLang + " FROM T_Group WHERE Desc_en='" + english + "'";
+            DataSet dataSet = DBManager.QueryDataSet(sql);
+            return dataSet.Tables[0].Rows[0][0].ToString();
+        }
+
+        public static string TranslateSubGroup(string english)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "Desc";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "Desc_en";
+
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "Desc_de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "Desc_sk";
+                    break;
+                default:
+                    expectedLang = "Desc";
+                    break;
+            }
+            string sql = "SELECT " + expectedLang + " FROM T_Subgroup WHERE Desc_en='" + english + "'";
+            DataSet dataSet = DBManager.QueryDataSet(sql);
+            return dataSet.Tables[0].Rows[0][0].ToString();
+        }
+
+        public static string TranslateIngredient(string english)
+        {
+            string expectedLang;
+            switch (currentLang)
+            {
+                case LanguageManager.Lang.HUNGARIAN:
+                    expectedLang = "Desc";
+                    break;
+                case LanguageManager.Lang.ENGLISH:
+                    expectedLang = "Desc_en";
+
+                    break;
+                case LanguageManager.Lang.GERMAN:
+                    expectedLang = "Desc_de";
+                    break;
+                case LanguageManager.Lang.SLOVENSKY:
+                    expectedLang = "Desc_sk";
+                    break;
+                default:
+                    expectedLang = "Desc";
+                    break;
+            }
+            string sql = "SELECT " + expectedLang + " FROM T_Ingredient WHERE Desc_en='" + english + "'";
+            DataSet dataSet = DBManager.QueryDataSet(sql);
+            return dataSet.Tables[0].Rows[0][0].ToString();
+        }
     }
 }

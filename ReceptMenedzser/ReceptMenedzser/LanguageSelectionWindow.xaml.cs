@@ -40,16 +40,16 @@ namespace ReceptMenedzser
             switch(comboBox.SelectedItem.ToString())
             {
                 case "Magyar":
-                    LanguageManager.schosenLang = LanguageManager.Lang.HUNGARIAN;
+                    LanguageManager.currentLang = LanguageManager.Lang.HUNGARIAN;
                     break;
                 case "English":
-                    LanguageManager.schosenLang = LanguageManager.Lang.ENGLISH;
+                    LanguageManager.currentLang = LanguageManager.Lang.ENGLISH;
                     break;
                 case "Deutsch":
-                    LanguageManager.schosenLang = LanguageManager.Lang.GERMAN;
+                    LanguageManager.currentLang = LanguageManager.Lang.GERMAN;
                     break;
                 case "Slovensky":
-                    LanguageManager.schosenLang = LanguageManager.Lang.SLOVENSKY;
+                    LanguageManager.currentLang = LanguageManager.Lang.SLOVENSKY;
                     break;
             }
             MainWindow mainWindow = new MainWindow();
