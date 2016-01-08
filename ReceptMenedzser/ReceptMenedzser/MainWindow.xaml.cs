@@ -23,6 +23,7 @@ namespace ReceptMenedzser
     public partial class MainWindow : Window
     {
         public static string language;
+        public static string selectedRecipeId;
 
         public MainWindow()
         {
@@ -106,23 +107,21 @@ namespace ReceptMenedzser
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataRowView dataRow = (DataRowView)dataGrid.SelectedItem;
+            selectedRecipeId = dataRow.Row.ItemArray[0].ToString();
+            System.Windows.MessageBox.Show(selectedRecipeId);
             FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
             foodDetailsWindow.Show();
         }
 
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
         {
-            ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "/Receptek.xls");
+            ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
             // TODO make it multilungal!
             System.Windows.MessageBox.Show("Az importálás sikeresen befejeződött!");
         }
 
-        private void Grid_Initialized(object sender, EventArgs e)
-        {
-            //FormatDataGrid();
-        }
-
-        private void dataGrid_LayoutUpdated(object sender, EventArgs e)
+        private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             FormatDataGrid();
         }
