@@ -11,7 +11,8 @@ namespace ReceptMenedzser
         public static void Import(string fileName)
         {
             Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(fileName, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(fileName);
+            //Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(fileName, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
             Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
             Excel.Range range = xlWorkSheet.UsedRange;
@@ -41,8 +42,7 @@ namespace ReceptMenedzser
                 }
             }
             QueryString = QueryString.Remove(QueryString.Length - 1);
-            //MessageBox.Show(QueryString);
-            DBManager.QueryCommand(QueryString);
+            MessageBox.Show(QueryString);
             xlWorkBook.Close(true, null, null);
             xlApp.Quit();
         }
