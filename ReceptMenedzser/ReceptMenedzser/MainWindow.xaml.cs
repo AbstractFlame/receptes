@@ -123,7 +123,7 @@ namespace ReceptMenedzser
             string subGroupId = comboB_SubGroupSelect.SelectedValue != null ? comboB_SubGroupSelect.SelectedValue.ToString() : "";
             string ingredientId = comboB_MainIngredientSelect.SelectedValue != null ? comboB_MainIngredientSelect.SelectedValue.ToString() : "";
             string query = "SELECT * FROM recept WHERE";
-            query += " name '%" + keywords + "'%";
+            query += " name LIKE '%" + keywords + "%'";
             if (groupId != "")
                 query += " AND group_id=" + groupId;
             if(subGroupId != "")
