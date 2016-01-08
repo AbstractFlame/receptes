@@ -7,16 +7,15 @@ using System.Data;
 
 namespace ReceptMenedzser
 {
-
     public class LanguageManager
     {
         public enum Lang {HUNGARIAN, ENGLISH, GERMAN, SLOVENSKY};
-        public static Lang schosenLang;
+        public static Lang currentLang;
 
-        public static string TranslateFromDictionary(string english, Lang lang)
+        public static string TranslateFromDictionary(string english)
         {
             string expectedLang;
-            switch (lang)
+            switch (currentLang)
             {
                 case LanguageManager.Lang.HUNGARIAN:
                     expectedLang = "magyar";
