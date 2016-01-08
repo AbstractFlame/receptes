@@ -38,8 +38,6 @@ namespace ReceptMenedzser
 
         public static void FillTreeView(TreeView treeView)
         {
-            treeView.Items.Clear(); // TODO: temporarly clear...
-
             DataSet cartonDataSet = DBManager.QueryDataSet("SELECT * FROM T_Karton_UJ");
             foreach (DataRow drLevel1 in cartonDataSet.Tables[0].Rows)
             {
