@@ -49,11 +49,6 @@ namespace ReceptMenedzser
             dataGrid.Columns[1].Width =150;
             dataGrid.Columns[3].Width = 250;
             dataGrid.Columns[8].Width =250;
-            //dataGrid.Columns[7].Width = 250;
-            //dataGrid.Columns[3].Width = 250;
-            //dataGrid.Columns[3].Width = 250;
-
-
         }
 
         private void FillFilterBar()

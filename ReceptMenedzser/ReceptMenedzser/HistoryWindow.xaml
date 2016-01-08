@@ -1,0 +1,27 @@
+﻿<Window x:Class="ReceptMenedzser.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReceptMenedzser"
+        mc:Ignorable="d"
+        Title="Window1" Height="300" Width="300">
+    <Grid>
+        <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="8"/>
+        <Label x:Name="label1" Content="Revision" HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy" Content="Revision" HorizontalAlignment="Left" Margin="29,60,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy1" Content="Revision" HorizontalAlignment="Left" Margin="29,71,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Revision" HorizontalAlignment="Left" Margin="29,83,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy3" Content="Revision" HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy4" Content="Revision" HorizontalAlignment="Left" Margin="29,106,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy5" Content="Revision" HorizontalAlignment="Left" Margin="29,117,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy6" Content="Revision" HorizontalAlignment="Left" Margin="29,129,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy7" Content="Revision" HorizontalAlignment="Left" Margin="29,140,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy8" Content="Revision" HorizontalAlignment="Left" Margin="29,152,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy9" Content="Revision" HorizontalAlignment="Left" Margin="29,168,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy10" Content="Revision" HorizontalAlignment="Left" Margin="29,191,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy11" Content="Revision" HorizontalAlignment="Left" Margin="29,219,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
