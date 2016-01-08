@@ -47,18 +47,18 @@ namespace ReceptMenedzser
 
         private void FormatDataGrid()
         {
-            dataGrid.Columns[0].Visibility=Visibility.Hidden;
-            dataGrid.Columns[2].Visibility = Visibility.Hidden;
-            dataGrid.Columns[4].Visibility = Visibility.Hidden;
-            dataGrid.Columns[5].Visibility = Visibility.Hidden;
-            dataGrid.Columns[6].Visibility = Visibility.Hidden;
-            dataGrid.Columns[7].Visibility = Visibility.Hidden;
-            dataGrid.Columns[9].Visibility = Visibility.Hidden;
-            dataGrid.Columns[10].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[0].Visibility=Visibility.Hidden;
+            //dataGrid.Columns[2].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[4].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[5].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[6].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[7].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[9].Visibility = Visibility.Hidden;
+            //dataGrid.Columns[10].Visibility = Visibility.Hidden;
 
-            dataGrid.Columns[1].Width =150;
-            dataGrid.Columns[3].Width = 250;
-            dataGrid.Columns[8].Width =250;
+            //dataGrid.Columns[1].Width =150;
+            //dataGrid.Columns[3].Width = 250;
+            //dataGrid.Columns[8].Width =250;
             //dataGrid.Columns[7].Width = 250;
             //dataGrid.Columns[3].Width = 250;
             //dataGrid.Columns[3].Width = 250;
@@ -89,6 +89,7 @@ namespace ReceptMenedzser
 
         private void UpdateDataGrid(string sql)
         {
+            sql = FinalizeSQLForGrid(sql);
             try
             {
                 DataSet recipesDataSet = DBManager.QueryDataSet(sql);
@@ -101,6 +102,14 @@ namespace ReceptMenedzser
             }
         }
 
+        private string FinalizeSQLForGrid(string sql)
+        {
+            System.Windows.MessageBox.Show(sql);
+            string finalSql  = "SELECT ";
+            finalSql += "rid, name, acc, prep, desc, com ";
+            finalSql += "FROM (" + sql + ")";
+            return finalSql;
+        }
 
         private void Tortenet_Click(object sender, RoutedEventArgs e)
         {
