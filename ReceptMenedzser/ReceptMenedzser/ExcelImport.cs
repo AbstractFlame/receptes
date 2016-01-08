@@ -23,7 +23,7 @@ namespace ReceptMenedzser
 
             String QueryString = "insert into recept (name, lang, acc, group_id, subgroup_id, fo_osszetevo_id, prep, desc, com, foodpic) VALUES";
             bool emptyRow = false;
-            for (int rCnt = 1; rCnt <= range.Rows.Count && emptyRow == false; rCnt++)
+            for (int rCnt = 2; rCnt <= range.Rows.Count && emptyRow == false; rCnt++)
             {
                 emptyRow = true;
                 string rowSQL = "(";
@@ -32,7 +32,7 @@ namespace ReceptMenedzser
                     string cellValue = Convert.ToString((range.Cells[rCnt, cCnt] as Excel.Range).Value2);
                     if (cellValue != null)
                         emptyRow = false;
-                    rowSQL += "\"" + cellValue + "\",";
+                    rowSQL += "'" + cellValue + "',";
                 }
                 if (emptyRow == false)
                 {
@@ -43,8 +43,32 @@ namespace ReceptMenedzser
             }
             QueryString = QueryString.Remove(QueryString.Length - 1);
             MessageBox.Show(QueryString);
+            DBManager.QueryCommand(QueryString);
             xlWorkBook.Close(true, null, null);
             xlApp.Quit();
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+        }
+
+
+        private static void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Unable to release the Object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
         }
     }
 }
