@@ -34,7 +34,7 @@ namespace ReceptMenedzser
             try
             {
                 sqLite_Con.Open();
-                SQLiteCommand sql_cmd = sqLite_Con.CreateCommand();
+                SQLiteCommand sql_cmd = new SQLiteCommand(sql, sqLite_Con);
                 sql_cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
