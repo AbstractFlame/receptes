@@ -33,6 +33,16 @@ namespace ReceptMenedzser
             UpdateDataGrid("select * from recept");
             GroupManager.FillTreeView(treeView);
             FillFilterBar();
+            StatikusLabelekButtonokNyelvesitese();
+        }
+        private void StatikusLabelekButtonokNyelvesitese()
+        {
+            btn_SearchInFoodName.Content = LanguageManager.TranslateFromDictionary("6");
+            //btn_RecipeDetails.Content = LanguageManager.TranslateFromDictionary("");
+            //btn_Excel_Import.Content = LanguageManager.TranslateFromDictionary("");
+            //btn_SendMail.Content = LanguageManager.TranslateFromDictionary("");
+            btn_History.Content = LanguageManager.TranslateFromDictionary("16");
+            //btn_Help.Content = LanguageManager.TranslateFromDictionary("");
         }
 
         private void FormatDataGrid()
@@ -150,6 +160,12 @@ namespace ReceptMenedzser
             System.Windows.MessageBox.Show(selectedRecipeId);
             FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
             foodDetailsWindow.Show();
+        }
+
+        private void btn_History_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow w = new HistoryWindow();
+            w.Show();
         }
     }
 }

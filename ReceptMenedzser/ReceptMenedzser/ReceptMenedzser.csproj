@@ -92,6 +92,10 @@
     <Compile Include="FoodDetailsWindow.xaml.cs">
       <DependentUpon>FoodDetailsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="HistoryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LanguageSelectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +109,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GroupManager.cs" />
+    <Compile Include="HistoryWindow.xaml.cs">
+      <DependentUpon>HistoryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LanguageManager.cs" />
     <Compile Include="LanguageSelectionWindow.xaml.cs">
       <DependentUpon>LanguageSelectionWindow.xaml</DependentUpon>
