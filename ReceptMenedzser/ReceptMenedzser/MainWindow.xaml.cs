@@ -38,11 +38,11 @@ namespace ReceptMenedzser
         private void StatikusLabelekButtonokNyelvesitese()
         {
             btn_SearchInFoodName.Content = LanguageManager.TranslateFromDictionary("6");
-            //btn_RecipeDetails.Content = LanguageManager.TranslateFromDictionary("");
+            btn_RecipeDetails.Content = LanguageManager.TranslateFromDictionary("117");
             //btn_Excel_Import.Content = LanguageManager.TranslateFromDictionary("");
-            //btn_SendMail.Content = LanguageManager.TranslateFromDictionary("");
+            btn_SendMail.Content = LanguageManager.TranslateFromDictionary("118");
             btn_History.Content = LanguageManager.TranslateFromDictionary("16");
-            //btn_Help.Content = LanguageManager.TranslateFromDictionary("");
+            btn_Help.Content = LanguageManager.TranslateFromDictionary("119");
         }
 
         private void FormatDataGrid()

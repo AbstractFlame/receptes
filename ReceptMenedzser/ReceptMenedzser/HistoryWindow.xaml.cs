@@ -25,7 +25,7 @@ namespace ReceptMenedzser
 
             // NYELVESITES
 
-            //btn_BackFromHistoryWindow.Content = LanguageManager.TranslateFromDictionary();
+            btn_BackFromHistoryWindow.Content = LanguageManager.TranslateFromDictionary("120");
             label_71.Content = LanguageManager.TranslateFromDictionary("71");
             label_72.Content = LanguageManager.TranslateFromDictionary("72");
             label_73.Content = LanguageManager.TranslateFromDictionary("73");

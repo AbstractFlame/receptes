@@ -42,7 +42,7 @@ namespace ReceptMenedzser
 
             // STATIKUS LABELEK NYELVESITESE
 
-            //btn_Back.Content = LanguageManager.TranslateFromDictionary("20");
+            btn_closeRecipeDetailWindow.Content = LanguageManager.TranslateFromDictionary("120");
             label_Group.Content = LanguageManager.TranslateFromDictionary("20");
             label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
             label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");
@@ -52,6 +52,12 @@ namespace ReceptMenedzser
             label_Preparation.Content = LanguageManager.TranslateFromDictionary("10");
             label_Picture.Content = LanguageManager.TranslateFromDictionary("56");
             label_Language.Content = LanguageManager.TranslateFromDictionary("57");
+
+            btn_firstRecipe.Content = LanguageManager.TranslateFromDictionary("121");
+            btn_previousRecipe.Content = LanguageManager.TranslateFromDictionary("122");
+            btn_nextRecipe.Content = LanguageManager.TranslateFromDictionary("123");
+            btn_lastRecipe.Content = LanguageManager.TranslateFromDictionary("124");
+            btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("125");
 
         }
 

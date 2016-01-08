@@ -31,10 +31,10 @@
         <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="10,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
         <Button x:Name="btn_closeRecipeDetailWindow" Content="Kilépés" HorizontalAlignment="Left" Margin="478,534,0,0" VerticalAlignment="Top" Width="75" Click="btn_Back_Click" Grid.Column="1"/>
         <TextBlock x:Name="textBlock_FoodFUllName" HorizontalAlignment="Left" Margin="22,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFF50D0D" Height="29" Width="634" FontSize="16" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_firstRecipe" Content="Elejére" Grid.Column="1" HorizontalAlignment="Left" Margin="116,485,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_previousRecipe" Content="Vissza" Grid.Column="1" HorizontalAlignment="Left" Margin="196,485,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_nextRecipe" Content="Előre" Grid.Column="1" HorizontalAlignment="Left" Margin="302,485,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.6,0.4"/>
-        <Button x:Name="btn_lastRecipe" Content="Végére" Grid.Column="1" HorizontalAlignment="Left" Margin="382,485,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_firstRecipe" Content="Elejére" Grid.Column="1" HorizontalAlignment="Left" Margin="48,485,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="btn_previousRecipe" Content="Vissza" Grid.Column="1" HorizontalAlignment="Left" Margin="158,485,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="btn_nextRecipe" Content="Előre" Grid.Column="1" HorizontalAlignment="Left" Margin="315,485,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="-0.6,0.4"/>
+        <Button x:Name="btn_lastRecipe" Content="Végére" Grid.Column="1" HorizontalAlignment="Left" Margin="425,485,0,0" VerticalAlignment="Top" Width="105"/>
         <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" Grid.Column="1" HorizontalAlignment="Left" Margin="237,520,0,0" VerticalAlignment="Top" Width="105"/>
 
     </Grid>

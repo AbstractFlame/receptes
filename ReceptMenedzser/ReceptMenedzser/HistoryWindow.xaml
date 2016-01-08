@@ -24,7 +24,7 @@
         <Label x:Name="label_109" Content="Revision" HorizontalAlignment="Left" Margin="29,324,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
         <Label x:Name="label_115" Content="Revision" HorizontalAlignment="Left" Margin="29,347,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
         <Label x:Name="label_116" Content="Revision" HorizontalAlignment="Left" Margin="29,370,0,0" VerticalAlignment="Top" Foreground="#FFF70707"/>
-        <Button x:Name="btn_BackFromHistoryWindow" Content="Vissza" HorizontalAlignment="Left" Margin="259,393,0,0" VerticalAlignment="Top" Width="75" Click="btw_BackFromHistoryWindow_Click"/>
+        <Button x:Name="btn_BackFromHistoryWindow" Content="Vissza" HorizontalAlignment="Left" Margin="374,402,0,0" VerticalAlignment="Top" Width="75" Click="btw_BackFromHistoryWindow_Click"/>
 
 
     </Grid>
