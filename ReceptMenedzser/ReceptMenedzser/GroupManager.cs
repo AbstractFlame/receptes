@@ -44,7 +44,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel1 in cartonDataSet.Tables[0].Rows)
             {
                 string id = drLevel1[0].ToString();
-                string kartonName = drLevel1["KartonNev_en"].ToString();
+                string kartonName = LanguageManager.TranslateCarton(id);
                 AlabontasType type = (AlabontasType)Convert.ToInt32(drLevel1[8]); // alábontás típusa (felsorlás számként tárolva)
                 string SQLSubGroupQuery = drLevel1[6].ToString();
                 string SQLMasodikAlabontas = drLevel1[9].ToString();
@@ -79,7 +79,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["CS_ID"].ToString();
-                string nameLevel2 = drLevel2["Name"].ToString();
+                string nameLevel2 = LanguageManager.TranslateGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.group_id = " + idLevel2;
                 TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
@@ -95,7 +95,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
-                string nameLevel2 = drLevel2["Name"].ToString();
+                string nameLevel2 = LanguageManager.TranslateSubGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.subgroup_id = " + idLevel2;
                 TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
@@ -111,7 +111,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["CS_ID"].ToString();
-                string nameLevel2 = drLevel2["Name"].ToString();
+                string nameLevel2 = LanguageManager.TranslateGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.group_id = " + idLevel2;
                 TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
@@ -124,7 +124,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
-                string nameLevel2 = drLevel2["Name"].ToString();
+                string nameLevel2 = LanguageManager.TranslateSubGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.subgroup_id = " + idLevel2;
                 TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
@@ -140,7 +140,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
-                string nameLevel2 = drLevel2["Name"].ToString();
+                string nameLevel2 = LanguageManager.TranslateIngredient(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + idLevel2;
                 TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
@@ -167,7 +167,7 @@ namespace ReceptMenedzser
             foreach (DataRow drLevel3 in level3Dataset.Tables[0].Rows)
             {
                 string idLevel3 = drLevel3["SCS_ID"].ToString();
-                string nameLevel3 = drLevel3["Name"].ToString();
+                string nameLevel3 = LanguageManager.TranslateIngredient(idLevel3);
                 string SQLSubGroupQueryLevel3 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + drLevel3;
                 TreeItem treeItemLevel3 = new TreeItem(idLevel3, SQLSubGroupQueryLevel3, 3, treeItemLevel2);
                 treeItemLevel3.Header = nameLevel3;
