@@ -22,6 +22,10 @@ namespace ReceptMenedzser
         public HistoryWindow()
         {
 
+
+
+            InitializeComponent();
+
             // NYELVESITES
 
             //btn_BackFromHistoryWindow.Content = LanguageManager.TranslateFromDictionary();
@@ -42,8 +46,6 @@ namespace ReceptMenedzser
             label_115.Content = LanguageManager.TranslateFromDictionary("115");
             label_116.Content = LanguageManager.TranslateFromDictionary("116");
 
-            InitializeComponent();
-        
         }
 
         private void btw_BackFromHistoryWindow_Click(object sender, RoutedEventArgs e)
