@@ -34,6 +34,11 @@ namespace ReceptMenedzser
             FillFilterBar();
         }
 
+        private void FormatDataGrid()
+        {
+            dataGrid.Columns[0].Width = 100; 
+        }
+
         private void FillFilterBar()
         {
             // Group select
@@ -110,6 +115,16 @@ namespace ReceptMenedzser
             ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "/Receptek.xls");
             // TODO make it multilungal!
             System.Windows.MessageBox.Show("Az importálás sikeresen befejeződött!");
+        }
+
+        private void Grid_Initialized(object sender, EventArgs e)
+        {
+            //FormatDataGrid();
+        }
+
+        private void dataGrid_LayoutUpdated(object sender, EventArgs e)
+        {
+            FormatDataGrid();
         }
     }
 }
