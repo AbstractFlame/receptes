@@ -194,7 +194,7 @@ namespace ReceptMenedzser
             if (SQLMasodikAlabontas == "")
                 return false;
 
-            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM (" + SQLMasodikAlabontas + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = " + subgroupId + " GROUP BY T_Subgroup.SCS_ID");
+            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM (" + SQLMasodikAlabontas + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.subgroup_id = " + subgroupId + " GROUP BY T_Subgroup.SCS_ID");
             return dataSet.Tables[0].Rows.Count > 0;
         }
 
