@@ -44,7 +44,6 @@ namespace ReceptMenedzser
         private void StatikusLabelekButtonokNyelvesitese()
         {
             btn_SearchInFoodName.Content = LanguageManager.TranslateFromDictionary("6");
-            btn_RecipeDetails.Content = LanguageManager.TranslateFromDictionary("117");
             //btn_Excel_Import.Content = LanguageManager.TranslateFromDictionary("");
             btn_SendMail.Content = LanguageManager.TranslateFromDictionary("118");
             btn_History.Content = LanguageManager.TranslateFromDictionary("16");
@@ -171,7 +170,9 @@ namespace ReceptMenedzser
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            OpenFoodDetailWindow();
+            selectedRecipeIndex = dataGrid.SelectedIndex;
+            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
+            foodDetailsWindow.Show();
         }
 
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
@@ -184,18 +185,6 @@ namespace ReceptMenedzser
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             FormatDataGrid();
-        }
-
-        private void btn_RecipeDetails_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFoodDetailWindow();
-        }
-
-        private void OpenFoodDetailWindow()
-        {
-            selectedRecipeIndex = dataGrid.SelectedIndex;
-            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
-            foodDetailsWindow.Show();
         }
 
         private void btn_History_Click(object sender, RoutedEventArgs e)
