@@ -50,9 +50,17 @@ namespace ReceptMenedzser
             textBox_Preparation.Text = receptDataRow["prep"].ToString();
             textBox_Picture.Text = receptDataRow["foodpic"].ToString();
             textBox_Language.Text = receptDataRow["lang"].ToString();
-            string foodPic = receptDataRow["foodpic"].ToString();
-            if (foodPic != "")
-                image_FoodImageInDetailsWindow.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Food_pictures\\" + receptDataRow["foodpic"].ToString()));
+            if (receptDataRow["foodpic"] != null)
+            {
+                try
+                {
+                    image_FoodImageInDetailsWindow.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Food_pictures\\" + receptDataRow["foodpic"].ToString()));
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("A képfájl nem található: " + ex.Message);
+                }
+            }
 
             string groupId = receptDataRow["group_id"].ToString();
             string subGroupId = receptDataRow["subgroup_id"].ToString();

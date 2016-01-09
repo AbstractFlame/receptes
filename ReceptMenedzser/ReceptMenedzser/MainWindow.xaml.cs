@@ -103,8 +103,8 @@ namespace ReceptMenedzser
                 BindingOperations.ClearAllBindings(dataGrid);
                 dataGrid.ItemsSource = dataView;
                 dataGrid.Items.Refresh();
-                FormatDataGrid();
                 FillRecipeIdList(recipesDataSet);
+                FormatDataGrid();
             }
             catch (Exception ex)
             {

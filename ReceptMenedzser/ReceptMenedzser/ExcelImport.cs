@@ -11,44 +11,54 @@ namespace ReceptMenedzser
         public static void Import(string fileName)
         {
             Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(fileName);
-            //Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(fileName, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-            Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-            Excel.Range range = xlWorkSheet.UsedRange;
-
-            // If there is only one row (the column names)
-            if (range.Rows.Count < 2)
-                return;
-
-            String QueryString = "insert into recept (name, lang, acc, group_id, subgroup_id, fo_osszetevo_id, prep, desc, com, foodpic) VALUES";
-            bool emptyRow = false;
-            for (int rCnt = 2; rCnt <= range.Rows.Count && emptyRow == false; rCnt++)
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            Excel.Range range;
+            try
             {
-                emptyRow = true;
-                string rowSQL = "(";
-                for (int cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
-                {
-                    string cellValue = Convert.ToString((range.Cells[rCnt, cCnt] as Excel.Range).Value2);
-                    if (cellValue != null)
-                        emptyRow = false;
-                    rowSQL += "'" + cellValue + "',";
-                }
-                if (emptyRow == false)
-                {
-                    rowSQL = rowSQL.Remove(rowSQL.Length - 1);
-                    rowSQL += "),";
-                    QueryString += rowSQL;
-                }
-            }
-            QueryString = QueryString.Remove(QueryString.Length - 1);
-            DBManager.QueryCommand(QueryString);
-            xlWorkBook.Close(true, null, null);
-            xlApp.Quit();
+                xlWorkBook = xlApp.Workbooks.Open(fileName);
+                //Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(fileName, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
+                range = xlWorkSheet.UsedRange;
+                // If there is only one row (the column names)
+                if (range.Rows.Count < 2)
+                    return;
+
+                String QueryString = "insert into recept (name, lang, acc, group_id, subgroup_id, fo_osszetevo_id, prep, desc, com, foodpic) VALUES";
+                bool emptyRow = false;
+                for (int rCnt = 2; rCnt <= range.Rows.Count && emptyRow == false; rCnt++)
+                {
+                    emptyRow = true;
+                    string rowSQL = "(";
+                    for (int cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
+                    {
+                        string cellValue = Convert.ToString((range.Cells[rCnt, cCnt] as Excel.Range).Value2);
+                        if (cellValue != null)
+                            emptyRow = false;
+                        rowSQL += "'" + cellValue + "',";
+                    }
+                    if (emptyRow == false)
+                    {
+                        rowSQL = rowSQL.Remove(rowSQL.Length - 1);
+                        rowSQL += "),";
+                        QueryString += rowSQL;
+                    }
+                }
+                QueryString = QueryString.Remove(QueryString.Length - 1);
+                DBManager.QueryCommand(QueryString);
+                xlWorkBook.Close(true, null, null);
+                xlApp.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlApp);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("At Excel import: " + ex.Message);
+            }
+
         }
 
 
