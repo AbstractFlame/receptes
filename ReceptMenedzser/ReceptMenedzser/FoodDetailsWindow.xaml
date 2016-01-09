@@ -10,7 +10,7 @@
             <ColumnDefinition Width="103*"/>
             <ColumnDefinition Width="579*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="453,77,0,0" VerticalAlignment="Top" Width="100" Source="KZK_logo.png" Grid.Column="1"/>
+        <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="453,77,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
         <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="17,77,0,0" VerticalAlignment="Top" Height="36"/>
         <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="17,101,0,0" VerticalAlignment="Top" Height="31"/>
         <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" Height="32" Grid.ColumnSpan="2"/>

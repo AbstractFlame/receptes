@@ -58,7 +58,8 @@ namespace ReceptMenedzser
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("A képfájl nem található: " + ex.Message);
+                    //MessageBox.Show("A képfájl nem található: " + ex.Message);
+                    image_FoodImageInDetailsWindow.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg"));
                 }
             }
 
