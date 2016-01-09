@@ -22,9 +22,9 @@ namespace ReceptMenedzser
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string language;
-        public static string selectedRecipeIndex;
+        public static int selectedRecipeIndex;
         public static string[] recipeIds;
+        public static int recipesLength;
 
         public MainWindow()
         {
@@ -98,6 +98,7 @@ namespace ReceptMenedzser
         private void FillRecipeIdList(DataSet recipesDataSet)
         {
             recipeIds = new string[recipesDataSet.Tables[0].Rows.Count];
+            recipesLength = recipesDataSet.Tables[0].Rows.Count;
             int i = 0;
             foreach (DataRow dataRow in recipesDataSet.Tables[0].Rows)
             {
@@ -173,7 +174,7 @@ namespace ReceptMenedzser
 
         private void OpenFoodDetailWindow()
         {
-            selectedRecipeIndex = dataGrid.SelectedIndex.ToString();
+            selectedRecipeIndex = dataGrid.SelectedIndex;
             FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
             foodDetailsWindow.Show();
         }

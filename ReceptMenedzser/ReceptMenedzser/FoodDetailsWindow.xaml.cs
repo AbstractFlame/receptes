@@ -20,7 +20,7 @@ namespace ReceptMenedzser
     /// </summary>
     public partial class FoodDetailsWindow : Window
     {
-        private string currentRecipeIndex;
+        private int currentRecipeIndex;
         private bool underModification;
 
         public FoodDetailsWindow()
@@ -28,15 +28,16 @@ namespace ReceptMenedzser
             InitializeComponent();
 
             currentRecipeIndex = MainWindow.selectedRecipeIndex;
-            underModification = true;
+            underModification = false;
 
             UpdateRecipeData(currentRecipeIndex);
             FillLabels();
         }
 
-        private void UpdateRecipeData(string recipeId)
+        private void UpdateRecipeData(int recipeIndex)
         {
             // RECEPTEKRE VONATKOZO ADATOK NYELVESITESE
+            string recipeId = MainWindow.recipeIds[recipeIndex];
             DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + recipeId);
             DataRow receptDataRow = dataSet.Tables[0].Rows[0];
 
@@ -83,6 +84,62 @@ namespace ReceptMenedzser
             underModification = !underModification;
            // if (underModification)
 
+        }
+
+        private void btn_previousRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (underModification)
+            {
+                MessageBox.Show("Szerkesztés alatt nem lehet lépni.");
+                return;
+            }
+
+            if (currentRecipeIndex < 1)
+            {
+                MessageBox.Show("Nincs megelőző elem.");
+                return;
+            }
+
+            UpdateRecipeData(--currentRecipeIndex);
+        }
+
+        private void btn_nextRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (underModification)
+            {
+                MessageBox.Show("Szerkesztés alatt nem lehet lépni.");
+                return;
+            }
+
+            if (currentRecipeIndex > MainWindow.recipesLength - 2)
+            {
+                MessageBox.Show("Nincs következő elem.");
+                return;
+            }
+
+            UpdateRecipeData(++currentRecipeIndex);
+        }
+
+        private void btn_firstRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (underModification)
+            {
+                MessageBox.Show("Szerkesztés alatt nem lehet lépni.");
+                return;
+            }
+
+            UpdateRecipeData(currentRecipeIndex = 0);
+        }
+
+        private void btn_lastRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (underModification)
+            {
+                MessageBox.Show("Szerkesztés alatt nem lehet lépni.");
+                return;
+            }
+
+            UpdateRecipeData(currentRecipeIndex = MainWindow.recipesLength - 1);
         }
     }
 }
