@@ -22,7 +22,7 @@
         <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,0,133" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_History_Click"/>
         <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,0,94" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_Help_Click"/>
         <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,0,173" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_SendMail_Click"/>
-        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,92,17" Grid.Row="1" SelectionChanged="dataGrid_SelectionChanged" Loaded="dataGrid_Loaded"/>
+        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,92,17" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
         <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="126" Height="72" VerticalAlignment="Bottom" Margin="0,0,0,17" Grid.ColumnSpan="2" MouseUp="KZK_logo_png_MouseUp"/>
         <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="5,36,0,17" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"></TreeView>
         <ComboBox x:Name="comboB_GroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.289,-0.807" Height="21" Grid.Row="1"/>

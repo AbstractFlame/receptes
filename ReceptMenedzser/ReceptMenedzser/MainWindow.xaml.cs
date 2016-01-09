@@ -171,13 +171,6 @@ namespace ReceptMenedzser
             UpdateFoodPicture(foodPicPath);
         }
 
-        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            selectedRecipeIndex = dataGrid.SelectedIndex;
-            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
-            foodDetailsWindow.Show();
-        }
-
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
         {
             ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
@@ -224,6 +217,16 @@ namespace ReceptMenedzser
                 sql += " )";
                 int affectedRows = DBManager.QueryCommand(sql);
             }
+        }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGrid.SelectedIndex == -1)
+                return;
+
+            selectedRecipeIndex = dataGrid.SelectedIndex;
+            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
+            foodDetailsWindow.Show();
         }
     }
 }
