@@ -209,5 +209,20 @@ namespace ReceptMenedzser
                 Process.Start(url);
             }
         }
+
+        private void KZK_logo_png_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (System.Windows.MessageBox.Show("Biztosan szeretné törölni a duplikátum recepteket az adatbázisból?", "",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                string sql = "DELETE FROM recept ";
+                sql += " WHERE rid NOT IN ( ";
+                sql += " SELECT MIN(rid) as rid";
+                sql += " FROM recept";
+                sql += " GROUP BY name";
+                sql += " )";
+                int affectedRows = DBManager.QueryCommand(sql);
+            }
+        }
     }
 }
