@@ -103,6 +103,7 @@ namespace ReceptMenedzser
                 BindingOperations.ClearAllBindings(dataGrid);
                 dataGrid.ItemsSource = dataView;
                 dataGrid.Items.Refresh();
+                FormatDataGrid();
                 FillRecipeIdList(recipesDataSet);
             }
             catch (Exception ex)
@@ -135,7 +136,7 @@ namespace ReceptMenedzser
 
             string finalSql  = "SELECT ";
             finalSql += "rid, name, acc, prep, desc, com ";
-            finalSql += "FROM (" + languageFilteredSQL + ")";
+            finalSql += "FROM (" + languageFilteredSQL + ") ORDER BY name ASC";
 
             return finalSql;
         }
