@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="458.894" Width="787.336" Icon="Cook.ico">
+        Title="MainWindow" Height="455.894" Width="800.836" Icon="Cook.ico">
 
     <Grid Margin="0,0,2,-21">
         <Grid.RowDefinitions>
@@ -18,12 +18,12 @@
             <ColumnDefinition Width="724*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,0,213" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Click="btn_Excel_Import_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,0,133" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_History_Click"/>
-        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,0,94" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_Help_Click"/>
-        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,0,173" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_SendMail_Click"/>
+        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,1,288" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Click="btn_Excel_Import_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,1,208" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_History_Click"/>
+        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,1,169" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_Help_Click"/>
+        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,1,248" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_SendMail_Click"/>
         <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,92,17" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
-        <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="126" Height="72" VerticalAlignment="Bottom" Margin="0,0,0,17" Grid.ColumnSpan="2" MouseUp="KZK_logo_png_MouseUp"/>
+        <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="128" Height="118" VerticalAlignment="Bottom" Margin="0,0,1,17" Grid.ColumnSpan="2" MouseUp="KZK_logo_png_MouseUp"/>
         <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="5,36,0,17" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"></TreeView>
         <ComboBox x:Name="comboB_GroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.289,-0.807" Height="21" Grid.Row="1"/>
         <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" Width="143" Height="21" Grid.Row="1"/>
