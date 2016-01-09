@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="455.894" Width="800.836" Icon="Cook.ico">
+        Title="MainWindow" Height="595.394" Width="812.836" Icon="Cook.ico">
 
     <Grid Margin="0,0,2,-21">
         <Grid.RowDefinitions>
@@ -18,18 +18,24 @@
             <ColumnDefinition Width="724*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,1,288" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Click="btn_Excel_Import_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,1,208" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_History_Click"/>
-        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,1,169" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_Help_Click"/>
-        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,1,248" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_SendMail_Click"/>
-        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,92,17" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
+        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,1,288" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Excel_Import_Click" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,1,208" Width="126" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Click="btn_History_Click" Height="35" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,1,169" Width="126" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Click="btn_Help_Click" Height="35" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,1,248" Width="126" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Click="btn_SendMail_Click" Height="35" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="170,109,95,10" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
         <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="128" Height="118" VerticalAlignment="Bottom" Margin="0,0,1,17" Grid.ColumnSpan="2" MouseUp="KZK_logo_png_MouseUp"/>
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="5,36,0,17" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"></TreeView>
-        <ComboBox x:Name="comboB_GroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.289,-0.807" Height="21" Grid.Row="1"/>
-        <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" Width="143" Height="21" Grid.Row="1"/>
-        <Button x:Name="btn_SearchInFoodName" Grid.ColumnSpan="2" Content="Kereses" HorizontalAlignment="Left" Margin="571,10,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Row="1" Click="btn_SearchInFoodName_Click"/>
-        <TextBox x:Name="textB_SearchInFoodName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="21" Margin="446,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <Image x:Name="img_Food" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="72" Margin="0,36,22,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
-        <ComboBox x:Name="comboB_MainIngredientSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="321,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120"/>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="2,109,0,10" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"/>
+        <ComboBox x:Name="comboB_GroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="2,85,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.289,-0.807" Height="20" Grid.Row="1"/>
+        <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="170,84,0,0" VerticalAlignment="Top" Width="143" Height="21" Grid.Row="1"/>
+        <Button x:Name="btn_SearchInFoodName" Grid.ColumnSpan="2" Content="Kereses" HorizontalAlignment="Left" Margin="568,85,0,0" VerticalAlignment="Top" Width="76" Height="18" Grid.Row="1" Click="btn_SearchInFoodName_Click"/>
+        <TextBox x:Name="textB_SearchInFoodName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="21" Margin="443,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Image x:Name="img_Food" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="72" Margin="0,82,25,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="comboB_MainIngredientSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="318,84,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120" Height="20"/>
+        <Label x:Name="label" Grid.ColumnSpan="3" Content="revision: 4.0" HorizontalAlignment="Right" Margin="0,-4,-9,0" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.972,-0.217" Width="80"/>
+        <Label x:Name="label_FelsoSzoveg1_110" Grid.ColumnSpan="3" Content="A receptekhez tartozó képek hitelességét nem tudom garantálni !!!" HorizontalAlignment="Left" Margin="116,30,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="677" FontSize="16" Foreground="#FFF70101"/>
+        <Label x:Name="label_Receptjeim_14" Grid.ColumnSpan="2" Content="Receptjeim: " HorizontalAlignment="Left" Margin="297,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="White" Foreground="#FFFF0101" FontSize="18.667"/>
+        <Label x:Name="label2_BetoltottReceptekDarabszama" Grid.ColumnSpan="2" Content="10894" HorizontalAlignment="Left" Margin="424,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="White" Foreground="#FFFF0101" FontSize="18.667"/>
+        <Label x:Name="label_Db_28" Grid.ColumnSpan="2" Content="db" HorizontalAlignment="Left" Margin="504,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="White" Foreground="#FFFF0101" FontSize="18.667"/>
+        <Label x:Name="label1_FelsoSZoveg2_112" Grid.ColumnSpan="3" Content="Egyes receptek fordítása automatikus. Kérjük, próbálja megérteni !!!" HorizontalAlignment="Left" Margin="122,51,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="680" FontSize="16" Foreground="#FFF70101"/>
     </Grid>
 </Window>
