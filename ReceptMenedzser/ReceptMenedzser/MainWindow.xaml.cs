@@ -23,7 +23,8 @@ namespace ReceptMenedzser
     public partial class MainWindow : Window
     {
         public static string language;
-        public static string selectedRecipeId;
+        public static string selectedRecipeIndex;
+        public static string[] recipeIds;
 
         public MainWindow()
         {
@@ -48,21 +49,13 @@ namespace ReceptMenedzser
 
         private void FormatDataGrid()
         {
-            dataGrid.Columns[0].Visibility=Visibility.Hidden;
-            //dataGrid.Columns[1].Visibility = Visibility.Hidden;
+            dataGrid.Columns[0].Visibility = Visibility.Hidden;
             dataGrid.Columns[3].Visibility = Visibility.Hidden;
             dataGrid.Columns[5].Visibility = Visibility.Hidden;
-            //dataGrid.Columns[6].Visibility = Visibility.Hidden;
-            //dataGrid.Columns[7].Visibility = Visibility.Hidden;
-            //dataGrid.Columns[9].Visibility = Visibility.Hidden;
-            //dataGrid.Columns[10].Visibility = Visibility.Hidden;
 
-            dataGrid.Columns[1].Width =200;
+            dataGrid.Columns[1].Width = 200;
             dataGrid.Columns[2].Width = 200;
-            dataGrid.Columns[4].Width =250;
-            //dataGrid.Columns[6].Width = 250;
-            //dataGrid.Columns[3].Width = 250;
-            //dataGrid.Columns[3].Width = 250;
+            dataGrid.Columns[4].Width = 250;
         }
 
         private void FillFilterBar()
@@ -94,10 +87,22 @@ namespace ReceptMenedzser
                 DataSet recipesDataSet = DBManager.QueryDataSet(sql);
                 DataView dataView = new DataView(recipesDataSet.Tables[0]);
                 dataGrid.ItemsSource = dataView;
+                FillRecipeIdList(recipesDataSet);
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show("at UpdateDataGrid: " + ex.Message);
+            }
+        }
+
+        private void FillRecipeIdList(DataSet recipesDataSet)
+        {
+            recipeIds = new string[recipesDataSet.Tables[0].Rows.Count];
+            int i = 0;
+            foreach (DataRow dataRow in recipesDataSet.Tables[0].Rows)
+            {
+                string id = dataRow[0].ToString();
+                recipeIds[i++] = id;
             }
         }
 
@@ -115,11 +120,6 @@ namespace ReceptMenedzser
             finalSql += "FROM (" + languageFilteredSQL + ")";
 
             return finalSql;
-        }
-
-        private void Tortenet_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btn_SearchInFoodName_Click(object sender, RoutedEventArgs e)
@@ -173,9 +173,7 @@ namespace ReceptMenedzser
 
         private void OpenFoodDetailWindow()
         {
-            DataRowView dataRow = (DataRowView)dataGrid.SelectedItem;
-            selectedRecipeId = dataRow.Row.ItemArray[0].ToString();
-            System.Windows.MessageBox.Show(selectedRecipeId);
+            selectedRecipeIndex = dataGrid.SelectedIndex.ToString();
             FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
             foodDetailsWindow.Show();
         }

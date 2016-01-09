@@ -21,15 +21,16 @@ namespace ReceptMenedzser
     public partial class FoodDetailsWindow : Window
     {
         private string currentRecipeIndex;
-        private string[] currentRecipeIds;
+        private bool underModification;
 
         public FoodDetailsWindow()
         {
             InitializeComponent();
 
-           // currentRecipeId = MainWindow.selectedRecipeId;
-//
-            //UpdateRecipeData(currentRecipeId);
+            currentRecipeIndex = MainWindow.selectedRecipeIndex;
+            underModification = true;
+
+            UpdateRecipeData(currentRecipeIndex);
             FillLabels();
         }
 
@@ -54,7 +55,7 @@ namespace ReceptMenedzser
 
         private void FillLabels()
         {
-            //btn_Back.Content = LanguageManager.TranslateFromDictionary("20");
+            btn_closeRecipeDetailWindow.Content = LanguageManager.TranslateFromDictionary("120");
             label_Group.Content = LanguageManager.TranslateFromDictionary("20");
             label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
             label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");
@@ -75,6 +76,13 @@ namespace ReceptMenedzser
          private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_modifyRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            underModification = !underModification;
+           // if (underModification)
+
         }
     }
 }
