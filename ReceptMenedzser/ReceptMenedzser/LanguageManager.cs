@@ -54,6 +54,23 @@ namespace ReceptMenedzser
             }
         }
 
+        public static string GetCartonColumnName()
+        {
+            switch (LanguageManager.currentLang)
+            {
+                case LanguageManager.Lang.ENGLISH:
+                    return "KartonNev_en";
+                case LanguageManager.Lang.GERMAN:
+                    return "KartonNev_de";
+                case LanguageManager.Lang.HUNGARIAN:
+                    return "KartonNev";
+                case LanguageManager.Lang.SLOVENSKY:
+                    return "KartonNev_sk";
+                default:
+                    return "KartonNev";
+            }
+        }
+
         public static string TranslateFromDictionary(string dictionary_id)
         {
             string expectedLang;
