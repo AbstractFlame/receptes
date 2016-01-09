@@ -50,7 +50,7 @@ namespace ReceptMenedzser
             textBox_Preparation.Text = receptDataRow["prep"].ToString();
             textBox_Picture.Text = receptDataRow["foodpic"].ToString();
             textBox_Language.Text = receptDataRow["lang"].ToString();
-            //image_FoodImageInDetailsWindow.
+            image_FoodImageInDetailsWindow.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Food_pictures\\" + receptDataRow["foodpic"].ToString()));
         }
 
         private void FillLabels()
