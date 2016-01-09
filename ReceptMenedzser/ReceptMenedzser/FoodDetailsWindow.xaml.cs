@@ -50,7 +50,9 @@ namespace ReceptMenedzser
             textBox_Preparation.Text = receptDataRow["prep"].ToString();
             textBox_Picture.Text = receptDataRow["foodpic"].ToString();
             textBox_Language.Text = receptDataRow["lang"].ToString();
-            image_FoodImageInDetailsWindow.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Food_pictures\\" + receptDataRow["foodpic"].ToString()));
+            string foodPic = receptDataRow["foodpic"].ToString();
+            if (foodPic != "")
+                image_FoodImageInDetailsWindow.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Food_pictures\\" + receptDataRow["foodpic"].ToString()));
 
             string groupId = receptDataRow["group_id"].ToString();
             string subGroupId = receptDataRow["subgroup_id"].ToString();
@@ -121,7 +123,6 @@ namespace ReceptMenedzser
                 sql += "com='" + textBox_Remark.Text + "',";
                 sql += "foodpic='" + textBox_Picture.Text + "'";
                 sql += " WHERE rid = '" + MainWindow.recipeIds[currentRecipeIndex] + "'";
-                MessageBox.Show(sql);
                 DBManager.QueryCommand(sql);
             }
         }

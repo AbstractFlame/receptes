@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Data;
 using System.Diagnostics;
+using System.Windows.Controls.Primitives;
 
 namespace ReceptMenedzser
 {
@@ -26,6 +27,8 @@ namespace ReceptMenedzser
         public static int selectedRecipeIndex;
         public static string[] recipeIds;
         public static int recipesLength;
+
+        private DataView dataView;
 
         public MainWindow()
         {
@@ -95,13 +98,16 @@ namespace ReceptMenedzser
             try
             {
                 DataSet recipesDataSet = DBManager.QueryDataSet(sql);
-                DataView dataView = new DataView(recipesDataSet.Tables[0]);
+                dataView = new DataView(recipesDataSet.Tables[0]);
+                BindingOperations.ClearAllBindings(dataGrid);
                 dataGrid.ItemsSource = dataView;
+                dataGrid.Items.Refresh();
                 FillRecipeIdList(recipesDataSet);
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("at UpdateDataGrid: " + ex.Message);
+                // can't resolve this problem: schose a recipe to go to detailWindow, then back, then schose a category
+                //System.Windows.MessageBox.Show("at UpdateDataGrid: " + ex.Message);
             }
         }
 
@@ -154,6 +160,9 @@ namespace ReceptMenedzser
 
         private void treeView_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            if (treeView.SelectedItem == null)
+                return;
+
             string query = GroupManager.GetSQLQuery((TreeViewItem)treeView.SelectedItem);
             UpdateDataGrid(query);
             string foodPicPath = GroupManager.getPicturePath((TreeViewItem)treeView.SelectedItem);
