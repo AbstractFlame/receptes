@@ -11,21 +11,21 @@
             <ColumnDefinition Width="579*"/>
         </Grid.ColumnDefinitions>
         <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="453,77,0,0" VerticalAlignment="Top" Width="100" Source="KZK_logo.png" Grid.Column="1"/>
-        <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,77,0,0" VerticalAlignment="Top" Height="36"/>
-        <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="22,101,0,0" VerticalAlignment="Top" Height="31"/>
-        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="22,121,0,0" VerticalAlignment="Top" Height="32" Grid.ColumnSpan="2"/>
-        <Label x:Name="label_Ingredients" Content="Ingredients:&#xA;" HorizontalAlignment="Left" Margin="22,195,0,0" VerticalAlignment="Top" Height="30"/>
-        <Label x:Name="label_Completion" Content="Completion:&#xA;" HorizontalAlignment="Left" Margin="22,325,0,0" VerticalAlignment="Top" Height="44"/>
-        <Label x:Name="label_Remark" Content="Remark:&#xA;" HorizontalAlignment="Left" Margin="22,443,0,0" VerticalAlignment="Top" Height="42"/>
-        <TextBox x:Name="textBox_Group" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <TextBox x:Name="textBox_SubGroup" HorizontalAlignment="Left" Height="23" Margin="10,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <TextBox x:Name="textBox_MainIngredient" HorizontalAlignment="Left" Height="23" Margin="10,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="17,77,0,0" VerticalAlignment="Top" Height="36"/>
+        <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="17,101,0,0" VerticalAlignment="Top" Height="31"/>
+        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" Height="32" Grid.ColumnSpan="2"/>
+        <Label x:Name="label_Ingredients" Content="Ingredients:&#xA;" HorizontalAlignment="Left" Margin="17,195,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label x:Name="label_Completion" Content="Completion:&#xA;" HorizontalAlignment="Left" Margin="17,325,0,0" VerticalAlignment="Top" Height="44"/>
+        <Label x:Name="label_Remark" Content="Remark:&#xA;" HorizontalAlignment="Left" Margin="17,443,0,0" VerticalAlignment="Top" Height="42"/>
+        <ComboBox x:Name="comboB_GroupSelect" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <ComboBox x:Name="comboB_SubGroupSelect" HorizontalAlignment="Left" Height="23" Margin="10,102,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <ComboBox x:Name="comboB_MainIngredientSelect" HorizontalAlignment="Left" Height="23" Margin="10,127,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <TextBox x:Name="textBox_Ingredients" HorizontalAlignment="Left" Height="125" Margin="10,197,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543" Grid.Column="1"/>
         <TextBox x:Name="textBox_Completion" HorizontalAlignment="Left" Height="113" Margin="10,327,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543" Grid.Column="1"/>
         <TextBox x:Name="textBox_Remark" HorizontalAlignment="Left" Height="23" Margin="10,445,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543" Grid.Column="1"/>
         <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Left" Margin="144,77,0,0" VerticalAlignment="Top" Height="40" Grid.Column="1"/>
         <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="144,166,0,0" VerticalAlignment="Top" Height="30" Grid.Column="1"/>
-        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="22,153,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="5.351,3.273"/>
+        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="17,153,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="5.351,3.273"/>
         <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Left" Height="85" Margin="219,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Grid.Column="1"/>
         <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="219,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Grid.Column="1"/>
         <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="10,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
@@ -35,6 +35,7 @@
         <Button x:Name="btn_previousRecipe" Content="Vissza" Grid.Column="1" HorizontalAlignment="Left" Margin="158,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_previousRecipe_Click"/>
         <Button x:Name="btn_nextRecipe" Content="Előre" Grid.Column="1" HorizontalAlignment="Left" Margin="315,485,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="-0.6,0.4" Click="btn_nextRecipe_Click"/>
         <Button x:Name="btn_lastRecipe" Content="Végére" Grid.Column="1" HorizontalAlignment="Left" Margin="425,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_lastRecipe_Click"/>
-        <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" Grid.Column="1" HorizontalAlignment="Left" Margin="237,520,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" Grid.Column="1" HorizontalAlignment="Left" Margin="237,520,0,0" VerticalAlignment="Top" Width="105" Click="btn_modifyRecipe_Click"/>
+        <Button x:Name="btn_cancelModificationRecipe" Content="Mégse" Grid.Column="1" HorizontalAlignment="Left" Margin="237,545,0,0" VerticalAlignment="Top" Width="105" Click="btn_cancelModificationRecipe_Click"/>
     </Grid>
 </Window>
