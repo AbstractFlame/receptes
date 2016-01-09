@@ -184,5 +184,10 @@ namespace ReceptMenedzser
             HistoryWindow w = new HistoryWindow();
             w.Show();
         }
+
+        private void btn_Help_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("Ez a funkció jelenleg nem elérhető.");
+        }
     }
 }

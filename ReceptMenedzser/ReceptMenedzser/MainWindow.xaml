@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,0,213" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Click="btn_Excel_Import_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,0,133" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_History_Click"/>
-        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,0,94" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,0,94" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Click="btn_Help_Click"/>
         <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,0,173" Width="126" Grid.Column="1" Grid.Row="1" Height="35" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="173,36,92,17" Grid.Row="1" SelectionChanged="dataGrid_SelectionChanged" Loaded="dataGrid_Loaded"/>
         <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="126" Height="72" VerticalAlignment="Bottom" Margin="0,0,0,17" Grid.ColumnSpan="2"/>
