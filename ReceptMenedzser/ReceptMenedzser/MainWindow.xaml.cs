@@ -63,13 +63,15 @@ namespace ReceptMenedzser
 
         private void FillFilterBar()
         {
+            string langColumnName = LanguageManager.GetGroupColumnName();
+
             // Group select
             DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM T_Group");
             comboB_GroupSelect.IsEditable = true;
             comboB_GroupSelect.IsReadOnly = true;
             comboB_GroupSelect.Text = "Főcsoport";
             comboB_GroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
-            comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
             comboB_GroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["CS_ID"].ToString();
 
             // Subgroup select
@@ -78,7 +80,7 @@ namespace ReceptMenedzser
             comboB_SubGroupSelect.IsReadOnly = true;
             comboB_SubGroupSelect.Text = "Alcsoport";
             comboB_SubGroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
-            comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
             comboB_SubGroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
 
             // Subgroup select
@@ -87,7 +89,7 @@ namespace ReceptMenedzser
             comboB_MainIngredientSelect.IsReadOnly = true;
             comboB_MainIngredientSelect.Text = "Fő összetevő";
             comboB_MainIngredientSelect.ItemsSource = dataSet.Tables[0].DefaultView;
-            comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
             comboB_MainIngredientSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
         }
 

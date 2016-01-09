@@ -143,24 +143,26 @@ namespace ReceptMenedzser
 
         private void FillComboBoxes(string groupId, string subGroupId, string mainIngredientId)
         {
+            string langColumnName = LanguageManager.GetGroupColumnName();
+
             // Group select
             DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM T_Group");
             comboB_GroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
-            comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
             comboB_GroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["CS_ID"].ToString();
             comboB_GroupSelect.SelectedIndex = getComboBoxIndexById(comboB_GroupSelect, groupId);
 
             // Subgroup select
             dataSet = DBManager.QueryDataSet("SELECT * FROM T_Subgroup");
             comboB_SubGroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
-            comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
             comboB_SubGroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
             comboB_SubGroupSelect.SelectedIndex = getComboBoxIndexById(comboB_SubGroupSelect, subGroupId);
 
             // Subgroup select
             dataSet = DBManager.QueryDataSet("SELECT * FROM T_Ingredient");
             comboB_MainIngredientSelect.ItemsSource = dataSet.Tables[0].DefaultView;
-            comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns["Desc"].ToString();
+            comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
             comboB_MainIngredientSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
             comboB_MainIngredientSelect.SelectedIndex = getComboBoxIndexById(comboB_MainIngredientSelect, mainIngredientId);
         }

@@ -37,6 +37,23 @@ namespace ReceptMenedzser
             return "SELECT * FROM (" + sql + ") WHERE lang='" + expectedLang + "'";
         }
 
+        public static string GetGroupColumnName()
+        {
+            switch (LanguageManager.currentLang)
+            {
+                case LanguageManager.Lang.ENGLISH:
+                    return "Desc_en";
+                case LanguageManager.Lang.GERMAN:
+                    return "Desc_de";
+                case LanguageManager.Lang.HUNGARIAN:
+                    return "Desc";
+                case LanguageManager.Lang.SLOVENSKY:
+                    return "Desc_sk";
+                default:
+                    return "Desc";
+            }
+        }
+
         public static string TranslateFromDictionary(string dictionary_id)
         {
             string expectedLang;
