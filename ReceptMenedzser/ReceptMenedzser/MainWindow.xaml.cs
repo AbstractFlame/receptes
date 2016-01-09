@@ -56,9 +56,13 @@ namespace ReceptMenedzser
             dataGrid.Columns[3].Visibility = Visibility.Hidden;
             dataGrid.Columns[5].Visibility = Visibility.Hidden;
 
-            dataGrid.Columns[1].Width = 200;
-            dataGrid.Columns[2].Width = 200;
-            dataGrid.Columns[4].Width = 250;
+            dataGrid.Columns[1].Width = dataGrid.ActualWidth / 3;
+            dataGrid.Columns[2].Width = dataGrid.ActualWidth / 3;
+            dataGrid.Columns[4].Width = dataGrid.ActualWidth / 3;
+
+            dataGrid.Columns[1].Header = LanguageManager.TranslateFromDictionary("55");
+            dataGrid.Columns[2].Header = LanguageManager.TranslateFromDictionary("23");
+            dataGrid.Columns[4].Header = LanguageManager.TranslateFromDictionary("11");
         }
 
         private void FillFilterBar()
@@ -227,6 +231,11 @@ namespace ReceptMenedzser
             selectedRecipeIndex = dataGrid.SelectedIndex;
             FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
             foodDetailsWindow.Show();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            FormatDataGrid();
         }
     }
 }
