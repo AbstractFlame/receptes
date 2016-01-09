@@ -20,12 +20,23 @@ namespace ReceptMenedzser
     /// </summary>
     public partial class FoodDetailsWindow : Window
     {
+        private string currentRecipeIndex;
+        private string[] currentRecipeIds;
+
         public FoodDetailsWindow()
-        {InitializeComponent();
+        {
+            InitializeComponent();
 
+           // currentRecipeId = MainWindow.selectedRecipeId;
+//
+            //UpdateRecipeData(currentRecipeId);
+            FillLabels();
+        }
 
+        private void UpdateRecipeData(string recipeId)
+        {
             // RECEPTEKRE VONATKOZO ADATOK NYELVESITESE
-            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + MainWindow.selectedRecipeId);
+            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + recipeId);
             DataRow receptDataRow = dataSet.Tables[0].Rows[0];
 
             textBlock_FoodFUllName.Text = receptDataRow["name"].ToString();
@@ -39,10 +50,11 @@ namespace ReceptMenedzser
             textBox_Picture.Text = receptDataRow["foodpic"].ToString();
             textBox_Language.Text = receptDataRow["lang"].ToString();
             //image_FoodImageInDetailsWindow.
+        }
 
-            // STATIKUS LABELEK NYELVESITESE
-
-            btn_closeRecipeDetailWindow.Content = LanguageManager.TranslateFromDictionary("120");
+        private void FillLabels()
+        {
+            //btn_Back.Content = LanguageManager.TranslateFromDictionary("20");
             label_Group.Content = LanguageManager.TranslateFromDictionary("20");
             label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
             label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");
@@ -52,13 +64,6 @@ namespace ReceptMenedzser
             label_Preparation.Content = LanguageManager.TranslateFromDictionary("10");
             label_Picture.Content = LanguageManager.TranslateFromDictionary("56");
             label_Language.Content = LanguageManager.TranslateFromDictionary("57");
-
-            btn_firstRecipe.Content = LanguageManager.TranslateFromDictionary("121");
-            btn_previousRecipe.Content = LanguageManager.TranslateFromDictionary("122");
-            btn_nextRecipe.Content = LanguageManager.TranslateFromDictionary("123");
-            btn_lastRecipe.Content = LanguageManager.TranslateFromDictionary("124");
-            btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("125");
-
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)

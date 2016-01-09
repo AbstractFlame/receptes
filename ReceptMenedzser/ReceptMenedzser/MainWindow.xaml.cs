@@ -103,7 +103,6 @@ namespace ReceptMenedzser
 
         private void UpdateFoodPicture(string path)
         {
-            System.Windows.MessageBox.Show(path);
             img_Food.Source = new BitmapImage(new Uri(path));
         }
 
