@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Data;
+using System.Diagnostics;
 
 namespace ReceptMenedzser
 {
@@ -188,6 +189,16 @@ namespace ReceptMenedzser
         private void btn_Help_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.MessageBox.Show("Ez a funkció jelenleg nem elérhető.");
+        }
+
+        private void btn_SendMail_Click(object sender, RoutedEventArgs e)
+        {
+            if (System.Windows.MessageBox.Show("Megnyissam a levelezőprogramot, hogy levelet írhass kzoli62@gmail.com-nak?", "",
+               MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                var url = "mailto:kzoli62@gmail.com";
+                Process.Start(url);
+            }
         }
     }
 }
