@@ -29,7 +29,7 @@
         <ComboBox x:Name="comboB_SubGroupSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" Width="143" Height="21" Grid.Row="1"/>
         <Button x:Name="btn_SearchInFoodName" Grid.ColumnSpan="2" Content="Kereses" HorizontalAlignment="Left" Margin="571,10,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Row="1" Click="btn_SearchInFoodName_Click"/>
         <TextBox x:Name="textB_SearchInFoodName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="21" Margin="446,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <Image x:Name="img_Food" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="72" Margin="675,36,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
+        <Image x:Name="img_Food" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="72" Margin="0,36,22,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
         <ComboBox x:Name="comboB_MainIngredientSelect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="321,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
