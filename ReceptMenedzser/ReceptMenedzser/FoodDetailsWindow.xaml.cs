@@ -64,9 +64,15 @@ namespace ReceptMenedzser
             label_Preparation.Content = LanguageManager.TranslateFromDictionary("10");
             label_Picture.Content = LanguageManager.TranslateFromDictionary("56");
             label_Language.Content = LanguageManager.TranslateFromDictionary("57");
-        }
 
-        private void btn_Back_Click(object sender, RoutedEventArgs e)
+            btn_firstRecipe.Content = LanguageManager.TranslateFromDictionary("121");
+            btn_previousRecipe.Content = LanguageManager.TranslateFromDictionary("122");
+            btn_nextRecipe.Content = LanguageManager.TranslateFromDictionary("123");
+            btn_lastRecipe.Content = LanguageManager.TranslateFromDictionary("124");
+            btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("125");
+
+        }
+         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
