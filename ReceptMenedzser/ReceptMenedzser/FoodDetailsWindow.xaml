@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
-        mc:Ignorable="d" Height="590.539" Width="689.923" Topmost="True" ShowInTaskbar="False" Icon="Cook.ico">
+        mc:Ignorable="d" Height="640.539" Width="689.923" Topmost="True" ShowInTaskbar="False" Icon="Cook.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="103*"/>
@@ -36,6 +36,5 @@
         <Button x:Name="btn_nextRecipe" Content="Előre" Grid.Column="1" HorizontalAlignment="Left" Margin="315,485,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="-0.6,0.4"/>
         <Button x:Name="btn_lastRecipe" Content="Végére" Grid.Column="1" HorizontalAlignment="Left" Margin="425,485,0,0" VerticalAlignment="Top" Width="105"/>
         <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" Grid.Column="1" HorizontalAlignment="Left" Margin="237,520,0,0" VerticalAlignment="Top" Width="105"/>
-
     </Grid>
 </Window>

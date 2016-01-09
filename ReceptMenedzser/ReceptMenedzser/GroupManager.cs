@@ -18,11 +18,13 @@ namespace ReceptMenedzser
             public string SQLSubGroupQuery;
             public int level;
             public TreeItem parentItem;
-            public TreeItem(string Id, string SQLSubGroupQuery, int level, TreeItem parentItem = null)
+            public string pictureName;
+            public TreeItem(string Id, string SQLSubGroupQuery, int level, string picturePath, TreeItem parentItem = null)
             {
                 this.Id = Id;
                 this.SQLSubGroupQuery = SQLSubGroupQuery;
                 this.level = level;
+                this.pictureName = picturePath;
                 this.parentItem = parentItem;
             }
         }
@@ -36,6 +38,27 @@ namespace ReceptMenedzser
                 return selectedTreeItem.SQLSubGroupQuery;
         }
 
+        public static string getPicturePath(TreeViewItem selectedItem)
+        {
+            TreeItem selectedTreeItem = (TreeItem)selectedItem;
+            if(selectedTreeItem.pictureName != "")
+                switch(selectedTreeItem.level)
+                {
+                    case 1:
+                        return System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\" + selectedTreeItem.pictureName;
+                    case 2:
+                        return System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\" + selectedTreeItem.pictureName;
+                    case 3:
+                        return System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\" + selectedTreeItem.pictureName;
+                    default:
+                        return System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg";
+                }
+            else if (selectedTreeItem.parentItem != null)
+                return getPicturePath(selectedTreeItem.parentItem);
+            else
+                return "";
+        }
+
         public static void FillTreeView(TreeView treeView)
         {
             DataSet cartonDataSet = DBManager.QueryDataSet("SELECT * FROM T_Karton_UJ");
@@ -43,10 +66,11 @@ namespace ReceptMenedzser
             {
                 string id = drLevel1[0].ToString();
                 string kartonName = LanguageManager.TranslateCarton(id);
+                string imagePath = drLevel1["KartonKep"].ToString();
                 AlabontasType type = (AlabontasType)Convert.ToInt32(drLevel1[8]); // alábontás típusa (felsorlás számként tárolva)
                 string SQLSubGroupQuery = drLevel1[6].ToString();
                 string SQLMasodikAlabontas = drLevel1[9].ToString();
-                TreeItem treeItemLevel1 = new TreeItem(id, SQLSubGroupQuery, 1);
+                TreeItem treeItemLevel1 = new TreeItem(id, SQLSubGroupQuery, 1, imagePath);
                 treeItemLevel1.Header = kartonName;
                 switch (type)
                 {
@@ -73,13 +97,14 @@ namespace ReceptMenedzser
 
         private static void CsakFo(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Group.Desc_en AS Name, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Group.Pic as Pic, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["CS_ID"].ToString();
+                string imagePath = drLevel2["Pic"].ToString();
                 string nameLevel2 = LanguageManager.TranslateGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.group_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, imagePath, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -89,13 +114,14 @@ namespace ReceptMenedzser
 
         private static void CsakAl(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Subgroup.Desc_en AS Name, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.subgroup_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Subgroup.Pic as Pic, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.subgroup_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
+                string imagePath = drLevel2["Pic"].ToString();
                 string nameLevel2 = LanguageManager.TranslateSubGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.subgroup_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, imagePath, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -105,26 +131,28 @@ namespace ReceptMenedzser
 
         private static void FoEsAl(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Group.Desc_en AS Name, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Group.Pic as Pic, T_Group.CS_ID as CS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Group WHERE recept_filtered.group_id = T_Group.CS_ID GROUP BY T_Group.CS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["CS_ID"].ToString();
+                string imagePath = drLevel2["Pic"].ToString();
                 string nameLevel2 = LanguageManager.TranslateGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.group_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, imagePath, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
                 treeItemLevel1.Items.Add(treeItemLevel2);
             }
 
-            level2Dataset = DBManager.QueryDataSet("SELECT T_Subgroup.Desc_en AS Name, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
+            level2Dataset = DBManager.QueryDataSet("SELECT T_Subgroup.Pic as Pic, T_Subgroup.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Subgroup WHERE recept_filtered.group_id = T_Subgroup.SCS_ID GROUP BY T_Subgroup.SCS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
+                string imagePath = drLevel2["Pic"].ToString();
                 string nameLevel2 = LanguageManager.TranslateSubGroup(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.subgroup_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, imagePath, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -134,13 +162,14 @@ namespace ReceptMenedzser
 
         private static void Osszetevok(TreeItem treeItemLevel1, string SQLSubGroupQuery, string SQLMasodikAlabontas)
         {
-            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Ingredient.Desc_en AS Name, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
+            DataSet level2Dataset = DBManager.QueryDataSet("SELECT T_Ingredient.Pic as Pic, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQuery + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
             foreach (DataRow drLevel2 in level2Dataset.Tables[0].Rows)
             {
                 string idLevel2 = drLevel2["SCS_ID"].ToString();
+                string imagePath = drLevel2["Pic"].ToString();
                 string nameLevel2 = LanguageManager.TranslateIngredient(idLevel2);
                 string SQLSubGroupQueryLevel2 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + idLevel2;
-                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, treeItemLevel1);
+                TreeItem treeItemLevel2 = new TreeItem(idLevel2, SQLSubGroupQueryLevel2, 2, imagePath, treeItemLevel1);
                 treeItemLevel2.Header = nameLevel2;
                 if (IsLevel3(SQLMasodikAlabontas, idLevel2))
                     BuildLevel3(treeItemLevel2, SQLSubGroupQueryLevel2);
@@ -161,13 +190,14 @@ namespace ReceptMenedzser
         // csak subgroup esetén működik helyesen!
         private static void BuildLevel3(TreeItem treeItemLevel2, string SQLSubGroupQueryLevel2)
         {
-            DataSet level3Dataset = DBManager.QueryDataSet("SELECT T_Ingredient.Desc_en AS Name, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQueryLevel2 + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
+            DataSet level3Dataset = DBManager.QueryDataSet("SELECT T_Ingredient.Pic as Pic, T_Ingredient.SCS_ID as SCS_ID FROM (" + SQLSubGroupQueryLevel2 + ") AS recept_filtered JOIN T_Ingredient WHERE recept_filtered.fo_osszetevo_id = T_Ingredient.SCS_ID GROUP BY T_Ingredient.SCS_ID");
             foreach (DataRow drLevel3 in level3Dataset.Tables[0].Rows)
             {
                 string idLevel3 = drLevel3["SCS_ID"].ToString();
+                string imagePath = drLevel3["Pic"].ToString();
                 string nameLevel3 = LanguageManager.TranslateIngredient(idLevel3);
                 string SQLSubGroupQueryLevel3 = "SELECT * FROM recept WHERE recept.fo_osszetevo_id = " + idLevel3;
-                TreeItem treeItemLevel3 = new TreeItem(idLevel3, SQLSubGroupQueryLevel3, 3, treeItemLevel2);
+                TreeItem treeItemLevel3 = new TreeItem(idLevel3, SQLSubGroupQueryLevel3, 3, imagePath, treeItemLevel2);
                 treeItemLevel3.Header = nameLevel3;
                 treeItemLevel2.Items.Add(treeItemLevel3);
             }

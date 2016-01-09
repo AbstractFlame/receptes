@@ -31,6 +31,7 @@ namespace ReceptMenedzser
 
             DBManager.ConnectToSQLiteDB(@" Data Source=receptek.db; Version=3;");
             UpdateDataGrid("select * from recept");
+            UpdateFoodPicture(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg");
             GroupManager.FillTreeView(treeView);
             FillFilterBar();
             StatikusLabelekButtonokNyelvesitese();
@@ -100,6 +101,12 @@ namespace ReceptMenedzser
             }
         }
 
+        private void UpdateFoodPicture(string path)
+        {
+            System.Windows.MessageBox.Show(path);
+            img_Food.Source = new BitmapImage(new Uri(path));
+        }
+
         private string FinalizeSQLForGrid(string sql)
         {
             string languageFilteredSQL = LanguageManager.FilterSQL(sql);
@@ -132,12 +139,15 @@ namespace ReceptMenedzser
                 query += " AND fo_osszetevo_id=" + ingredientId;
 
             UpdateDataGrid(query);
+            UpdateFoodPicture(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg");
         }
 
         private void treeView_MouseUp(object sender, MouseButtonEventArgs e)
         {
             string query = GroupManager.GetSQLQuery((TreeViewItem)treeView.SelectedItem);
             UpdateDataGrid(query);
+            string foodPicPath = GroupManager.getPicturePath((TreeViewItem)treeView.SelectedItem);
+            UpdateFoodPicture(foodPicPath);
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
