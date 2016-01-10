@@ -32,7 +32,7 @@ namespace ReceptMenedzser
             btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
 
             UpdateRecipeData(currentRecipeIndex);
-            UpdateEnabled();
+            UpdateLayout();
             FillLabels();
         }
 
@@ -75,7 +75,7 @@ namespace ReceptMenedzser
             FillComboBoxes(groupId, subGroupId, mainIngredientId);
         }
 
-        private void UpdateEnabled()
+        private void UpdateLayout()
         {
             textBlock_FoodFUllName.IsEnabled = underModification;
             comboB_GroupSelect.IsEnabled = underModification;
@@ -87,6 +87,9 @@ namespace ReceptMenedzser
             textBox_Preparation.IsEnabled = underModification;
             textBox_Picture.IsEnabled = underModification;
             textBox_Language.IsEnabled = underModification;
+
+            btn_cancelModificationRecipe.Visibility = underModification ? Visibility.Visible : Visibility.Hidden;
+            btn_SaveModify.Visibility = underModification ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void FillLabels()
@@ -117,30 +120,8 @@ namespace ReceptMenedzser
 
         private void btn_modifyRecipe_Click(object sender, RoutedEventArgs e)
         {
-            underModification = !underModification;
-            UpdateEnabled();
-            if (underModification)
-            {
-                btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("126");
-                btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("125");
-                string sql = "UPDATE recept SET ";
-                sql += "name='" + textBlock_FoodFUllName.Text + "',";
-                sql += "lang='" + textBox_Language.Text + "',";
-                sql += "acc='" + textBox_Ingredients.Text + "',";
-                sql += "group_id='" + comboB_GroupSelect.SelectedValue + "',";
-                sql += "subgroup_id='" + comboB_SubGroupSelect.SelectedValue + "',";
-                sql += "fo_osszetevo_id='" + comboB_MainIngredientSelect.SelectedValue + "',";
-                sql += "prep='" + textBox_Preparation.Text + "',";
-                sql += "desc='" + textBox_Completion.Text + "',";
-                sql += "com='" + textBox_Remark.Text + "',";
-                sql += "foodpic='" + textBox_Picture.Text + "'";
-                sql += " WHERE rid = '" + MainWindow.recipeIds[currentRecipeIndex] + "'";
-                DBManager.QueryCommand(sql);
-            }
+            underModification = true;
+            UpdateLayout();
         }
 
         private int getComboBoxIndexById(ComboBox comboBox, string Id)
@@ -244,7 +225,27 @@ namespace ReceptMenedzser
             underModification = false;
             btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
             UpdateRecipeData(currentRecipeIndex);
-            UpdateEnabled();
+            UpdateLayout();
+        }
+
+        private void btn_SaveModify_Click(object sender, RoutedEventArgs e)
+        {
+            underModification = false;
+            UpdateLayout();
+
+            string sql = "UPDATE recept SET ";
+            sql += "name='" + textBlock_FoodFUllName.Text + "',";
+            sql += "lang='" + textBox_Language.Text + "',";
+            sql += "acc='" + textBox_Ingredients.Text + "',";
+            sql += "group_id='" + comboB_GroupSelect.SelectedValue + "',";
+            sql += "subgroup_id='" + comboB_SubGroupSelect.SelectedValue + "',";
+            sql += "fo_osszetevo_id='" + comboB_MainIngredientSelect.SelectedValue + "',";
+            sql += "prep='" + textBox_Preparation.Text + "',";
+            sql += "desc='" + textBox_Completion.Text + "',";
+            sql += "com='" + textBox_Remark.Text + "',";
+            sql += "foodpic='" + textBox_Picture.Text + "'";
+            sql += " WHERE rid = '" + MainWindow.recipeIds[currentRecipeIndex] + "'";
+            DBManager.QueryCommand(sql);
         }
     }
 }
