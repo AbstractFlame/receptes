@@ -28,7 +28,7 @@ namespace ReceptMenedzser
             comboBox.Items.Add("Deutsch");
             comboBox.Items.Add("Slovensky");
             comboBox.SelectedIndex = 0;
-            // label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
+            //label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
         }
 
         private void btn_Quit_Click(object sender, RoutedEventArgs e)
