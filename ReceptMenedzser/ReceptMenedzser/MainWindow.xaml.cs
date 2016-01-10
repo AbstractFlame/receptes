@@ -35,7 +35,6 @@ namespace ReceptMenedzser
             InitializeComponent();
 
             dataGrid.CanUserAddRows = false;
-            DBManager.ConnectToSQLiteDB(@" Data Source=receptek.db; Version=3;");
             UpdateDataGrid("select * from recept");
             UpdateFoodPicture(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg");
             GroupManager.FillTreeView(treeView);

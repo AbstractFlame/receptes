@@ -10,7 +10,7 @@ namespace ReceptMenedzser
     public class LanguageManager
     {
         public enum Lang {HUNGARIAN, ENGLISH, GERMAN, SLOVENSKY};
-        public static Lang currentLang;
+        public static Lang currentLang = Lang.ENGLISH;
 
         public static string GetLangShortName()
         {
