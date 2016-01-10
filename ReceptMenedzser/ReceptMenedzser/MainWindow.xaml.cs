@@ -43,9 +43,7 @@ namespace ReceptMenedzser
         private void StatikusLabelekButtonokNyelvesitese()
         {
             btn_Search.Content = LanguageManager.TranslateFromDictionary("6");
-            btn_SendMail.Content = LanguageManager.TranslateFromDictionary("118");
             btn_History.Content = LanguageManager.TranslateFromDictionary("16");
-            btn_Help.Content = LanguageManager.TranslateFromDictionary("119");
 
             label_Receptjeim_14_count_28.Content = LanguageManager.TranslateFromDictionary("14");
             label_FelsoSzoveg1_110.Content = LanguageManager.TranslateFromDictionary("110");
