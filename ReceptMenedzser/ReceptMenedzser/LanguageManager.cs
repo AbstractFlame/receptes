@@ -12,29 +12,21 @@ namespace ReceptMenedzser
         public enum Lang {HUNGARIAN, ENGLISH, GERMAN, SLOVENSKY};
         public static Lang currentLang;
 
-        public static string FilterSQL(string sql)
+        public static string GetLangShortName()
         {
-            string expectedLang;
             switch (currentLang)
             {
                 case LanguageManager.Lang.HUNGARIAN:
-                    expectedLang = "hu";
-                    break;
+                    return "hu";
                 case LanguageManager.Lang.ENGLISH:
-                    expectedLang = "en";
-                    break;
+                    return "en";
                 case LanguageManager.Lang.GERMAN:
-                    expectedLang = "de";
-                    break;
+                    return "de";
                 case LanguageManager.Lang.SLOVENSKY:
-                    expectedLang = "sk";
-                    break;
+                    return "sk";
                 default:
-                    expectedLang = "magyar";
-                    break;
+                    return "hu";
             }
-
-            return "SELECT * FROM (" + sql + ") WHERE lang='" + expectedLang + "'";
         }
 
         public static string GetGroupColumnName()

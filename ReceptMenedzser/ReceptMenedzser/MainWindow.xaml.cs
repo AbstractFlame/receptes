@@ -52,11 +52,10 @@ namespace ReceptMenedzser
             label1_FelsoSZoveg2_112.Content = LanguageManager.TranslateFromDictionary("112");
             label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
 
-
-            string Darabszam = "32312"; // ENNEK KÉNE ÉRTÉK (nyelv függvényében count a adott nyelvhez tartozo receptekhez)
+            DataSet dataSet = DBManager.QueryDataSet("SELECT count(*) FROM recept WHERE lang='" + LanguageManager.GetLangShortName() + "'");
+            string Darabszam = dataSet.Tables[0].Rows[0][0].ToString();
 
             label_Receptjeim_14_count_28.Content = LanguageManager.TranslateFromDictionary("14") + ": "  + Darabszam + " " + LanguageManager.TranslateFromDictionary("28");
-
         }
 
         private void FormatDataGrid()
@@ -113,11 +112,11 @@ namespace ReceptMenedzser
 
         private string FinalizeSQLForGrid(string sql)
         {
-            string languageFilteredSQL = LanguageManager.FilterSQL(sql);
-
+            string shortLangName = LanguageManager.GetLangShortName();
+  
             string finalSql  = "SELECT ";
             finalSql += "rid, name, acc, prep, desc, com ";
-            finalSql += "FROM (" + languageFilteredSQL + ") ORDER BY name ASC";
+            finalSql += "FROM (" + sql + ") WHERE lang='" + shortLangName + "' ORDER BY name ASC";
 
             return finalSql;
         }

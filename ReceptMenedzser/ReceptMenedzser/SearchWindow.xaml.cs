@@ -134,11 +134,11 @@ namespace ReceptMenedzser
 
         private string FinalizeSQLForGrid(string sql)
         {
-            string languageFilteredSQL = LanguageManager.FilterSQL(sql);
+            string shortLangName = LanguageManager.GetLangShortName();
 
-            string finalSql  = "SELECT ";
+            string finalSql = "SELECT ";
             finalSql += "rid, name, acc, prep, desc, com ";
-            finalSql += "FROM (" + languageFilteredSQL + ") ORDER BY name ASC";
+            finalSql += "FROM (" + sql + ") WHERE lang='" + shortLangName + "' ORDER BY name ASC";
 
             return finalSql;
         }
