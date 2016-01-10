@@ -48,11 +48,10 @@ namespace ReceptMenedzser
             btn_History.Content = LanguageManager.TranslateFromDictionary("16");
             btn_Help.Content = LanguageManager.TranslateFromDictionary("119");
 
-            label_Receptjeim_14_count_28.Content = LanguageManager.TranslateFromDictionary("14");
-            //label_Db_28.Content = LanguageManager.TranslateFromDictionary("28");
+            label_Receptjeim_14.Content = LanguageManager.TranslateFromDictionary("14");
+            label_Db_28.Content = LanguageManager.TranslateFromDictionary("28");
             label_FelsoSzoveg1_110.Content = LanguageManager.TranslateFromDictionary("110");
             label1_FelsoSZoveg2_112.Content = LanguageManager.TranslateFromDictionary("112");
-            label_revision.Content = LanguageManager.TranslateFromDictionary("81");
             // label2_BetoltottReceptekDarabszama
         }
 
