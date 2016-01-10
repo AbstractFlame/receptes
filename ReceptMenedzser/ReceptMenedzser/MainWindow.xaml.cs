@@ -201,5 +201,11 @@ namespace ReceptMenedzser
             SearchWindow searchWindow = new SearchWindow();
             searchWindow.Show();
         }
+
+        private void btn_Magnifying_Click(object sender, RoutedEventArgs e)
+        {
+            FullScreenFoodDetails w = new FullScreenFoodDetails();
+            w.Show();
+        }
     }
 }

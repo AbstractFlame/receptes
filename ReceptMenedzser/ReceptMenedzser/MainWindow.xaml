@@ -18,10 +18,10 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,1,303" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Excel_Import_Click" Height="37" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,1,218" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_History_Click" Height="37" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,1,177" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Help_Click" Height="37" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,1,261" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_SendMail_Click" Height="36" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,1,276" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Excel_Import_Click" Height="37" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,1,191" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_History_Click" Height="37" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,1,150" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Help_Click" Height="37" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,1,234" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_SendMail_Click" Height="36" VerticalAlignment="Bottom"/>
         <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="170,85,132,10" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
         <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="128" Height="125" VerticalAlignment="Bottom" Margin="0,0,1,11" MouseUp="KZK_logo_png_MouseUp"/>
         <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="2,85,0,10" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"/>
@@ -30,6 +30,7 @@
         <Label x:Name="label_FelsoSzoveg1_110" Grid.ColumnSpan="2" Content="A receptekhez tartozó képek hitelességét nem tudom garantálni !!!" HorizontalAlignment="Center" Margin="184,30,3,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="616" FontSize="16" Foreground="#FFF70101" Height="29"/>
         <Label x:Name="label_Receptjeim_14_count_28" Grid.ColumnSpan="2" Content="Receptjeim: " HorizontalAlignment="Center" Margin="252,0,197,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="White" Foreground="#FFFF0101" FontSize="18.667" Height="33" Width="354"/>
         <Label x:Name="label1_FelsoSZoveg2_112" Grid.ColumnSpan="2" Content="Egyes receptek fordítása automatikus. Kérjük, próbálja megérteni !!!" HorizontalAlignment="Center" Margin="184,51,1,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="618" FontSize="16" Foreground="#FFF70101" Height="29"/>
-        <Button x:Name="btn_Search" Content="Search" Margin="0,0,0,345" Grid.Column="1" Grid.Row="1" Height="37" VerticalAlignment="Bottom" Click="btn_Search_Click" HorizontalAlignment="Right" Width="126"/>
+        <Button x:Name="btn_Search" Content="Search" Margin="0,0,0,318" Grid.Column="1" Grid.Row="1" Height="37" VerticalAlignment="Bottom" Click="btn_Search_Click" HorizontalAlignment="Right" Width="126"/>
+        <Button x:Name="btn_Magnifying" Content="NAGYÍTÓ" Margin="0,0,0,360" Grid.Column="1" Grid.Row="1" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="126" Click="btn_Magnifying_Click"/>
     </Grid>
 </Window>
