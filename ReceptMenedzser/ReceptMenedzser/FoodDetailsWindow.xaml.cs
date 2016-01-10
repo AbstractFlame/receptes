@@ -32,7 +32,7 @@ namespace ReceptMenedzser
             btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
 
             UpdateRecipeData(currentRecipeIndex);
-            UpdateLayout();
+            RefreshLayout();
             FillLabels();
         }
 
@@ -75,7 +75,7 @@ namespace ReceptMenedzser
             FillComboBoxes(groupId, subGroupId, mainIngredientId);
         }
 
-        private void UpdateLayout()
+        private void RefreshLayout()
         {
             textBlock_FoodFUllName.IsEnabled = underModification;
             comboB_GroupSelect.IsEnabled = underModification;
@@ -121,7 +121,7 @@ namespace ReceptMenedzser
         private void btn_modifyRecipe_Click(object sender, RoutedEventArgs e)
         {
             underModification = true;
-            UpdateLayout();
+            RefreshLayout();
         }
 
         private int getComboBoxIndexById(ComboBox comboBox, string Id)
@@ -225,13 +225,13 @@ namespace ReceptMenedzser
             underModification = false;
             btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
             UpdateRecipeData(currentRecipeIndex);
-            UpdateLayout();
+            RefreshLayout();
         }
 
         private void btn_SaveModify_Click(object sender, RoutedEventArgs e)
         {
             underModification = false;
-            UpdateLayout();
+            RefreshLayout();
 
             string sql = "UPDATE recept SET ";
             sql += "name='" + textBlock_FoodFUllName.Text + "',";
