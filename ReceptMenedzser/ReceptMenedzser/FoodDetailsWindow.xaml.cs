@@ -116,7 +116,7 @@ namespace ReceptMenedzser
             UpdateEnabled();
             if (underModification)
             {
-                btn_modifyRecipe.Content = "Mentés";
+                btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("126");
                 btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
             }
             else
