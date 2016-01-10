@@ -44,7 +44,7 @@
         <Button x:Name="btn_lastRecipe" HorizontalAlignment="Left" Margin="528,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_lastRecipe_Click">
             <Image x:Name="GotoLastRow_288_png" Height="16" Source="GotoLastRow_288.png" Stretch="Fill" Width="16"/>
         </Button>
-        <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" HorizontalAlignment="Left" Margin="281,516,0,0" VerticalAlignment="Top" Width="105" Click="btn_modifyRecipe_Click"/>
+        <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" HorizontalAlignment="Left" Margin="281,516,0,0" VerticalAlignment="Top" Width="105" Click="btn_modifyRecipe_Click" Height="23"/>
         <Button x:Name="btn_cancelModificationRecipe" HorizontalAlignment="Left" Margin="337,542,0,0" VerticalAlignment="Top" Width="105" Click="btn_cancelModificationRecipe_Click" Height="21">
             <Image x:Name="StatusAnnotations_Blocked_32xLG_color_cancel_png" Height="15" Source="StatusAnnotations_Blocked_32xLG_color_cancel.png" Stretch="Fill" Width="15" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
@@ -63,7 +63,7 @@
             <Image x:Name="Zoom_5442_png" Height="16" Source="Zoom_5442.png" Stretch="Fill" Width="16"/>
         </Button>
         <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="10.667"/>
-        <Button x:Name="btn_SaveModify" HorizontalAlignment="Left" Margin="391,516,0,0" VerticalAlignment="Top" Width="105" Height="21">
+        <Button x:Name="btn_SaveModify" HorizontalAlignment="Left" Margin="391,516,0,0" VerticalAlignment="Top" Width="105" Height="23">
             <Image x:Name="save_16xLG_png" Height="16" Source="save_16xLG.png" Stretch="Fill" Width="16"/>
         </Button>
     </Grid>
