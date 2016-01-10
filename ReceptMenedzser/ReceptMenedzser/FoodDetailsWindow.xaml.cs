@@ -108,7 +108,6 @@ namespace ReceptMenedzser
             btn_nextRecipe.Content = LanguageManager.TranslateFromDictionary("123");
             btn_lastRecipe.Content = LanguageManager.TranslateFromDictionary("124");
             btn_modifyRecipe.Content = LanguageManager.TranslateFromDictionary("125");
-            
 
         }
          private void btn_Back_Click(object sender, RoutedEventArgs e)
