@@ -203,6 +203,51 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Find_5650.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Symbols_Help_and_inclusive_32xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="arrow_Next_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="arrow_previous_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="macro_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Symbols_Critical_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GotoLastRow_288.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GotoFirstRow_287.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Symbols_Complete_and_ok_32xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="save_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="StatusAnnotations_Blocked_32xLG_color_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="envelope_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Zoom_5442.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="filedownload.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Close_16xLG.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
