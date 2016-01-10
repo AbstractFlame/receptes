@@ -193,5 +193,10 @@ namespace ReceptMenedzser
             FullScreenFoodDetails w = new FullScreenFoodDetails();
             w.Show();
         }
+
+        private void btn_QuitFromSearchWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

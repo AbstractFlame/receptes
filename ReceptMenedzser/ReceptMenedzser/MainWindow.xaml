@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="595.394" Width="812.836" Icon="Cook.ico" SizeChanged="Window_SizeChanged">
+        Title="MainWindow" Height="646.394" Width="812.836" Icon="Cook.ico" SizeChanged="Window_SizeChanged">
 
-    <Grid Margin="0,0,2,-17">
+    <Grid Margin="0,0,2,18">
         <Grid.RowDefinitions>
             <RowDefinition Height="0*"/>
             <RowDefinition Height="338*"/>
@@ -18,24 +18,28 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_Excel_Import" Content="Excel_Import" HorizontalAlignment="Right" Margin="0,0,1,276" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Excel_Import_Click" Height="37" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,1,191" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_History_Click" Height="37" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_Help" Content="Help" HorizontalAlignment="Right" Margin="0,0,1,150" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_Help_Click" Height="37" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_SendMail" Content="Levélküldés" HorizontalAlignment="Right" Margin="0,0,1,234" Width="126" Grid.Column="1" Grid.Row="1" Click="btn_SendMail_Click" Height="36" VerticalAlignment="Bottom"/>
-        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="170,85,132,10" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
-        <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="128" Height="125" VerticalAlignment="Bottom" Margin="0,0,1,11" MouseUp="KZK_logo_png_MouseUp"/>
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="2,85,0,10" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"/>
-        <Image x:Name="img_Food" Grid.ColumnSpan="2" HorizontalAlignment="Right" Height="76" Margin="0,85,26,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
-        <Label x:Name="label_Revision" Grid.ColumnSpan="3" Content="revision: 4.0" HorizontalAlignment="Right" Margin="0,-4,-9,0" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.972,-0.217" Width="80" Height="23"/>
+        <Button x:Name="btn_Excel_Import" HorizontalAlignment="Right" Margin="0,0,4,231" Width="59" Grid.Column="1" Grid.Row="1" Click="btn_Excel_Import_Click" Height="44" VerticalAlignment="Bottom">
+            <Image x:Name="filedownload_ico" Height="16" Source="filedownload.ico" Stretch="Fill" Width="16"/>
+        </Button>
+        <Button x:Name="btn_History" Content="Törtenet" HorizontalAlignment="Right" Margin="0,0,4,298" Width="123" Grid.Column="1" Grid.Row="1" Click="btn_History_Click" Height="37" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_Help" HorizontalAlignment="Right" Margin="0,0,4,181" Width="59" Grid.Column="1" Grid.Row="1" Click="btn_Help_Click" Height="44" VerticalAlignment="Bottom">
+            <Image x:Name="Symbols_Help_and_inclusive_32xLG_png" Height="32" Source="Symbols_Help_and_inclusive_32xLG.png" Stretch="Fill" Width="32"/>
+        </Button>
+        <Button x:Name="btn_SendMail" HorizontalAlignment="Right" Margin="0,0,66,231" Width="59" Grid.Column="1" Grid.Row="1" Click="btn_SendMail_Click" Height="44" VerticalAlignment="Bottom">
+            <Image x:Name="envelope_16xLG_png" Height="16" Source="envelope_16xLG.png" Stretch="Fill" Width="16"/>
+        </Button>
+        <DataGrid x:Name="dataGrid" RenderTransformOrigin="-0.615,-2.527" Grid.Column="1" Margin="170,85,132,9" Grid.Row="1" Loaded="dataGrid_Loaded" MouseDoubleClick="dataGrid_MouseDoubleClick"/>
+        <Image x:Name="KZK_logo_png" Source="KZK_logo.png" Stretch="Fill" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="128" Height="126" VerticalAlignment="Bottom" Margin="0,0,1,10" MouseUp="KZK_logo_png_MouseUp"/>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Margin="2,85,0,9" Width="163" Grid.ColumnSpan="2" Grid.Row="1" MouseUp="treeView_MouseUp"/>
+        <Image x:Name="img_Food" Grid.ColumnSpan="2" HorizontalAlignment="Right" Height="76" Margin="0,105,25,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="label_Revision" Grid.ColumnSpan="2" Content="revision: 4.0" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.972,-0.217" Width="80" Height="23"/>
         <Label x:Name="label_FelsoSzoveg1_110" Grid.ColumnSpan="2" Content="A receptekhez tartozó képek hitelességét nem tudom garantálni !!!" HorizontalAlignment="Center" Margin="184,30,3,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="616" FontSize="16" Foreground="#FFF70101" Height="29"/>
         <Label x:Name="label_Receptjeim_14_count_28" Grid.ColumnSpan="2" Content="Receptjeim: " HorizontalAlignment="Center" Margin="252,0,197,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="White" Foreground="#FFFF0101" FontSize="18.667" Height="33" Width="354"/>
         <Label x:Name="label1_FelsoSZoveg2_112" Grid.ColumnSpan="2" Content="Egyes receptek fordítása automatikus. Kérjük, próbálja megérteni !!!" HorizontalAlignment="Center" Margin="184,51,1,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="618" FontSize="16" Foreground="#FFF70101" Height="29"/>
-        <Button x:Name="btn_Search" Content="Search" Margin="0,0,0,318" Grid.Column="1" Grid.Row="1" Height="37" VerticalAlignment="Bottom" Click="btn_Search_Click" HorizontalAlignment="Right" Width="126"/>
-        <Button x:Name="btn_Magnifying" Margin="0,0,0,360" Grid.Column="1" Grid.Row="1" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="126" Click="btn_Magnifying_Click">
-            <StackPanel>
-                <Image Source="Pictures/img.jpg" />
-                <TextBlock>NAGYITAS</TextBlock>
-            </StackPanel>
+        <Button x:Name="btn_Search" Content="Search" Margin="0,0,5,340" Grid.Column="1" Grid.Row="1" Height="37" VerticalAlignment="Bottom" Click="btn_Search_Click" HorizontalAlignment="Right" Width="122"/>
+        <Button x:Name="btn_Magnifying" HorizontalAlignment="Right" Margin="0,0,66,181" Width="59" Grid.Column="1" Grid.Row="1" Click="btn_Help_Click" Height="44" VerticalAlignment="Bottom">
+            <Image x:Name="Zoom_5442_png" Height="16" Source="Zoom_5442.png" Stretch="Fill" Width="16"/>
         </Button>
+        <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="10,0,0,-8" VerticalAlignment="Top" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="10.667" Grid.ColumnSpan="2" Grid.Row="2"/>
     </Grid>
 </Window>
