@@ -34,6 +34,7 @@ namespace ReceptMenedzser
         {
             InitializeComponent();
 
+            dataGrid.CanUserAddRows = false;
             DBManager.ConnectToSQLiteDB(@" Data Source=receptek.db; Version=3;");
             UpdateDataGrid("select * from recept");
             UpdateFoodPicture(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg");
@@ -184,6 +185,12 @@ namespace ReceptMenedzser
 
         private void btn_Nagyitas_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGrid.SelectedIndex == -1)
+            {
+                System.Windows.MessageBox.Show("Nagyító: Nincs recept kiválasztva.");
+                return;
+            }
+
             FullScreenFoodDetails w = new FullScreenFoodDetails();
             w.Show();
         }

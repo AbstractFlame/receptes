@@ -38,6 +38,12 @@ namespace ReceptMenedzser
 
         private void UpdateRecipeData(int recipeIndex)
         {
+            if (recipeIndex >= MainWindow.recipesLength)
+            {
+                MessageBox.Show("Nincs ilyen recept.");
+                return;
+            }
+
             // RECEPTEKRE VONATKOZO ADATOK NYELVESITESE
             string recipeId = MainWindow.recipeIds[recipeIndex];
             DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + recipeId);
