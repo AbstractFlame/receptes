@@ -23,6 +23,24 @@ namespace ReceptMenedzser
         {
             InitializeComponent();
             label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
+
+            btn_QuitFromFUllscreenFoodDetailsWIndow.Content = LanguageManager.TranslateFromDictionary("120");
+            label_Group.Content = LanguageManager.TranslateFromDictionary("20");
+            label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
+            label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");
+            label_Ingredients.Content = LanguageManager.TranslateFromDictionary("23");
+            label_Completion.Content = LanguageManager.TranslateFromDictionary("11");
+            label_Remark.Content = LanguageManager.TranslateFromDictionary("12");
+            label_Preparation.Content = LanguageManager.TranslateFromDictionary("10");
+            label_Picture.Content = LanguageManager.TranslateFromDictionary("56");
+            label_Language.Content = LanguageManager.TranslateFromDictionary("57");
+            label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
+
+        }
+
+        private void btn_QuitFromFUllscreenFoodDetailsWIndow_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

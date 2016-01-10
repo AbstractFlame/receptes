@@ -181,5 +181,11 @@ namespace ReceptMenedzser
         {
             FormatDataGrid();
         }
+
+        private void btn_Nagyitas_Click(object sender, RoutedEventArgs e)
+        {
+            FullScreenFoodDetails w = new FullScreenFoodDetails();
+            w.Show();
+        }
     }
 }

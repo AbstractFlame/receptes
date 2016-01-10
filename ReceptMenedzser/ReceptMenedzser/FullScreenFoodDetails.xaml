@@ -3,11 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowState="Maximized"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
         xmlns:local="clr-namespace:ReceptMenedzser"
         mc:Ignorable="d"
-        Title="FullScreenFoodDetails" Height="300" Width="300">
+        Title="FullScreenFoodDetails" Height="600" Width="800">
     <Grid>
-        <Label x:Name="label_Revision" Content="revision: 4.0" HorizontalAlignment="Left" Margin="220,2,0,0" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label_Revision" Content="revision: 4.0" Margin="0,2,7,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="23" Width="70"/>
+        <Button x:Name="btn_QuitFromFUllscreenFoodDetailsWIndow" Content="Button" HorizontalAlignment="Right" Margin="0,0,24,21" VerticalAlignment="Bottom" Width="75" Click="btn_QuitFromFUllscreenFoodDetailsWIndow_Click" Height="20"/>
+        <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Center" Height="100" Margin="676,68,24,432" VerticalAlignment="Center" Width="100" Source="Cook.bmp"/>
+        <Label x:Name="label_Group" Content="Group:&#xA;" HorizontalAlignment="Center" Margin="64,62,693,502" VerticalAlignment="Center" Height="36" Width="43"/>
+        <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Center" Margin="64,90,674,480" VerticalAlignment="Center" Height="30" Width="62"/>
+        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Center" Margin="64,118,646,450" VerticalAlignment="Center" Height="32" Width="90"/>
+        <Label x:Name="label_Ingredients" Content="Ingredients:&#xA;" HorizontalAlignment="Center" Margin="64,216,667,354" VerticalAlignment="Center" Height="30" Width="69"/>
+        <Label x:Name="label_Completion" Content="Completion:&#xA;" HorizontalAlignment="Center" Margin="65,354,667,202" VerticalAlignment="Center" Height="44" Width="68"/>
+        <Label x:Name="label_Remark" Content="Remark:&#xA;" HorizontalAlignment="Center" Margin="65,464,685,94" VerticalAlignment="Center" Height="42" Width="50"/>
+        <ComboBox x:Name="comboB_GroupSelect" HorizontalAlignment="Center" Height="24" Margin="190,62,490,514" VerticalAlignment="Center" Width="120"/>
+        <ComboBox x:Name="comboB_SubGroupSelect" HorizontalAlignment="Center" Height="22" Margin="190,90,490,488" VerticalAlignment="Center" Width="120"/>
+        <ComboBox x:Name="comboB_MainIngredientSelect" HorizontalAlignment="Center" Height="24" Margin="190,118,490,458" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="textBox_Ingredients" HorizontalAlignment="Center" Height="124" Margin="190,218,24,258" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="586"/>
+        <TextBox x:Name="textBox_Completion" HorizontalAlignment="Center" Height="112" Margin="192,356,24,132" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="584"/>
+        <TextBox x:Name="textBox_Remark" HorizontalAlignment="Center" Height="24" Margin="193,480,24,96" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="583"/>
+        <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Center" Margin="328,54,402,506" VerticalAlignment="Center" Height="40" Width="70"/>
+        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Center" Margin="328,138,425,432" VerticalAlignment="Center" Height="30" RenderTransformOrigin="0.043,0.6" Width="47"/>
+        <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Center" Margin="64,146,675,424" VerticalAlignment="Center" Height="30" RenderTransformOrigin="5.351,3.273" Width="61"/>
+        <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Center" Height="86" Margin="430,56,160,458" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="210"/>
+        <TextBox x:Name="textBox_Picture" HorizontalAlignment="Center" Height="22" Margin="430,146,158,432" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="212"/>
+        <TextBox x:Name="textBox_Language" HorizontalAlignment="Center" Height="22" Margin="190,146,558,432" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="52"/>
 
     </Grid>
 </Window>
