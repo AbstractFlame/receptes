@@ -55,7 +55,7 @@ namespace ReceptMenedzser
         public static DataSet QueryDataSet(string sql)
         {
             if(!isConnected)
-                throw new Exception("Not connected");
+            throw new Exception("Not connected");
 
             try
             {
