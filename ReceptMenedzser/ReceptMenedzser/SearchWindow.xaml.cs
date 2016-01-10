@@ -43,6 +43,9 @@ namespace ReceptMenedzser
         private void StatikusLabelekButtonokNyelvesitese()
         {
             btn_SearchInFoodName.Content = LanguageManager.TranslateFromDictionary("6");
+            label_revision.Content = LanguageManager.TranslateFromDictionary("83");
+            label_Mit_fozzek.Content = LanguageManager.TranslateFromDictionary("1");
+            label_Keressunk.Content = LanguageManager.TranslateFromDictionary("2");
         }
 
         private void FormatDataGrid()

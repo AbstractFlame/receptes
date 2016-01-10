@@ -42,17 +42,21 @@ namespace ReceptMenedzser
         }
         private void StatikusLabelekButtonokNyelvesitese()
         {
-            //btn_Excel_Import.Content = LanguageManager.TranslateFromDictionary("");
             btn_Search.Content = LanguageManager.TranslateFromDictionary("6");
             btn_SendMail.Content = LanguageManager.TranslateFromDictionary("118");
             btn_History.Content = LanguageManager.TranslateFromDictionary("16");
             btn_Help.Content = LanguageManager.TranslateFromDictionary("119");
 
             label_Receptjeim_14_count_28.Content = LanguageManager.TranslateFromDictionary("14");
-            //label_Db_28.Content = LanguageManager.TranslateFromDictionary("28");
             label_FelsoSzoveg1_110.Content = LanguageManager.TranslateFromDictionary("110");
             label1_FelsoSZoveg2_112.Content = LanguageManager.TranslateFromDictionary("112");
-            // label2_BetoltottReceptekDarabszama
+            label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
+
+
+            string Darabszam = "32312"; // ENNEK KÉNE ÉRTÉK (nyelv függvényében count a adott nyelvhez tartozo receptekhez)
+
+            label_Receptjeim_14_count_28.Content = LanguageManager.TranslateFromDictionary("14") + ": "  + Darabszam + " " + LanguageManager.TranslateFromDictionary("28");
+
         }
 
         private void FormatDataGrid()

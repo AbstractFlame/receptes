@@ -22,12 +22,13 @@ namespace ReceptMenedzser
         public LanguageSelectionWindow()
         {
             InitializeComponent();
-
+            
             comboBox.Items.Add("Magyar");
             comboBox.Items.Add("English");
             comboBox.Items.Add("Deutsch");
             comboBox.Items.Add("Slovensky");
             comboBox.SelectedIndex = 0;
+            // label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
         }
 
         private void btn_Quit_Click(object sender, RoutedEventArgs e)

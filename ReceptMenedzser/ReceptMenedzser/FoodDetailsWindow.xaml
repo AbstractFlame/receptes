@@ -37,6 +37,6 @@
         <Button x:Name="btn_lastRecipe" Content="Végére" Grid.Column="1" HorizontalAlignment="Left" Margin="425,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_lastRecipe_Click"/>
         <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" Grid.Column="1" HorizontalAlignment="Left" Margin="237,520,0,0" VerticalAlignment="Top" Width="105" Click="btn_modifyRecipe_Click"/>
         <Button x:Name="btn_cancelModificationRecipe" Content="Mégse" Grid.Column="1" HorizontalAlignment="Left" Margin="237,545,0,0" VerticalAlignment="Top" Width="105" Click="btn_cancelModificationRecipe_Click"/>
-        <Label x:Name="label" Content="revision: 4.0" Grid.Column="1" HorizontalAlignment="Left" Margin="506,2,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Revision" Content="revision: 4.0" Grid.Column="1" HorizontalAlignment="Left" Margin="506,2,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

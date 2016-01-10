@@ -22,6 +22,7 @@ namespace ReceptMenedzser
         public FullScreenFoodDetails()
         {
             InitializeComponent();
+            label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
         }
     }
 }
