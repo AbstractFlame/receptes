@@ -63,8 +63,8 @@
             <Image x:Name="Zoom_5442_png" Height="16" Source="Zoom_5442.png" Stretch="Fill" Width="16"/>
         </Button>
         <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="10.667"/>
-        <Button x:Name="btn_SaveModify" HorizontalAlignment="Left" Margin="391,516,0,0" VerticalAlignment="Top" Width="105" Height="23">
-            <Image x:Name="save_16xLG_png" Height="16" Source="save_16xLG.png" Stretch="Fill" Width="16"/>
+        <Button x:Name="btn_SaveModify" HorizontalAlignment="Left" Margin="391,516,0,0" VerticalAlignment="Top" Width="105" Height="23" Click="btn_SaveModify_Click">
+                <Image x:Name="save_16xLG_png" Height="16" Source="save_16xLG.png" Stretch="Fill" Width="16"/>
         </Button>
     </Grid>
 </Window>
