@@ -22,7 +22,7 @@ namespace ReceptMenedzser
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SearchWindow : Window
     {
         public static int selectedRecipeIndex;
         public static string[] recipeIds;
@@ -30,29 +30,19 @@ namespace ReceptMenedzser
 
         private DataView dataView;
 
-        public MainWindow()
+        public SearchWindow()
         {
             InitializeComponent();
 
             DBManager.ConnectToSQLiteDB(@" Data Source=receptek.db; Version=3;");
             UpdateDataGrid("select * from recept");
             UpdateFoodPicture(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg");
-            GroupManager.FillTreeView(treeView);
+            FillFilterBar();
             StatikusLabelekButtonokNyelvesitese();
         }
         private void StatikusLabelekButtonokNyelvesitese()
         {
-            //btn_Excel_Import.Content = LanguageManager.TranslateFromDictionary("");
-            btn_Search.Content = LanguageManager.TranslateFromDictionary("6");
-            btn_SendMail.Content = LanguageManager.TranslateFromDictionary("118");
-            btn_History.Content = LanguageManager.TranslateFromDictionary("16");
-            btn_Help.Content = LanguageManager.TranslateFromDictionary("119");
-
-            label_Receptjeim_14.Content = LanguageManager.TranslateFromDictionary("14");
-            label_Db_28.Content = LanguageManager.TranslateFromDictionary("28");
-            label_FelsoSzoveg1_110.Content = LanguageManager.TranslateFromDictionary("110");
-            label1_FelsoSZoveg2_112.Content = LanguageManager.TranslateFromDictionary("112");
-            // label2_BetoltottReceptekDarabszama
+            btn_SearchInFoodName.Content = LanguageManager.TranslateFromDictionary("6");
         }
 
         private void FormatDataGrid()
@@ -68,6 +58,38 @@ namespace ReceptMenedzser
             dataGrid.Columns[1].Header = LanguageManager.TranslateFromDictionary("55");
             dataGrid.Columns[2].Header = LanguageManager.TranslateFromDictionary("23");
             dataGrid.Columns[4].Header = LanguageManager.TranslateFromDictionary("11");
+        }
+
+        private void FillFilterBar()
+        {
+            string langColumnName = LanguageManager.GetGroupColumnName();
+
+            // Group select
+            DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM T_Group");
+            comboB_GroupSelect.IsEditable = true;
+            comboB_GroupSelect.IsReadOnly = true;
+            comboB_GroupSelect.Text = LanguageManager.TranslateFromDictionary("20");
+            comboB_GroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboB_GroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
+            comboB_GroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["CS_ID"].ToString();
+
+            // Subgroup select
+            dataSet = DBManager.QueryDataSet("SELECT * FROM T_Subgroup");
+            comboB_SubGroupSelect.IsEditable = true;
+            comboB_SubGroupSelect.IsReadOnly = true;
+            comboB_SubGroupSelect.Text = LanguageManager.TranslateFromDictionary("21");
+            comboB_SubGroupSelect.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboB_SubGroupSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
+            comboB_SubGroupSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
+
+            // Main Ingredient select
+            dataSet = DBManager.QueryDataSet("SELECT * FROM T_Ingredient");
+            comboB_MainIngredientSelect.IsEditable = true;
+            comboB_MainIngredientSelect.IsReadOnly = true;
+            comboB_MainIngredientSelect.Text = LanguageManager.TranslateFromDictionary("22");
+            comboB_MainIngredientSelect.ItemsSource = dataSet.Tables[0].DefaultView;
+            comboB_MainIngredientSelect.DisplayMemberPath = dataSet.Tables[0].Columns[langColumnName].ToString();
+            comboB_MainIngredientSelect.SelectedValuePath = dataSet.Tables[0].Columns["SCS_ID"].ToString();
         }
 
         private void UpdateDataGrid(string sql)
@@ -118,63 +140,28 @@ namespace ReceptMenedzser
             return finalSql;
         }
 
-        private void treeView_MouseUp(object sender, MouseButtonEventArgs e)
+        private void btn_SearchInFoodName_Click(object sender, RoutedEventArgs e)
         {
-            if (treeView.SelectedItem == null)
-                return;
+            string keywords = textB_SearchInFoodName.Text;
+            string groupId = comboB_GroupSelect.SelectedValue != null ? comboB_GroupSelect.SelectedValue.ToString() : "";
+            string subGroupId = comboB_SubGroupSelect.SelectedValue != null ? comboB_SubGroupSelect.SelectedValue.ToString() : "";
+            string ingredientId = comboB_MainIngredientSelect.SelectedValue != null ? comboB_MainIngredientSelect.SelectedValue.ToString() : "";
+            string query = "SELECT * FROM recept WHERE";
+            query += " name LIKE '%" + keywords + "%'";
+            if (groupId != "")
+                query += " AND group_id=" + groupId;
+            if(subGroupId != "")
+                query += " AND subgroup_id=" + subGroupId;
+            if(ingredientId != "")
+                query += " AND fo_osszetevo_id=" + ingredientId;
 
-            string query = GroupManager.GetSQLQuery((TreeViewItem)treeView.SelectedItem);
             UpdateDataGrid(query);
-            string foodPicPath = GroupManager.getPicturePath((TreeViewItem)treeView.SelectedItem);
-            UpdateFoodPicture(foodPicPath);
-        }
-
-        private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
-        {
-            ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
-            // TODO make it multilungal!
-            System.Windows.MessageBox.Show("Az importálás sikeresen befejeződött!");
+            UpdateFoodPicture(System.AppDomain.CurrentDomain.BaseDirectory + "images\\Pictures\\Cook.jpg");
         }
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             FormatDataGrid();
-        }
-
-        private void btn_History_Click(object sender, RoutedEventArgs e)
-        {
-            HistoryWindow w = new HistoryWindow();
-            w.Show();
-        }
-
-        private void btn_Help_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.MessageBox.Show("Ez a funkció jelenleg nem elérhető.");
-        }
-
-        private void btn_SendMail_Click(object sender, RoutedEventArgs e)
-        {
-            if (System.Windows.MessageBox.Show("Megnyissam a levelezőprogramot, hogy levelet írhass kzoli62@gmail.com-nak?", "",
-               MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                var url = "mailto:kzoli62@gmail.com";
-                Process.Start(url);
-            }
-        }
-
-        private void KZK_logo_png_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (System.Windows.MessageBox.Show("Biztosan szeretné törölni a duplikátum recepteket az adatbázisból?", "",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                string sql = "DELETE FROM recept ";
-                sql += " WHERE rid NOT IN ( ";
-                sql += " SELECT MIN(rid) as rid";
-                sql += " FROM recept";
-                sql += " GROUP BY name";
-                sql += " )";
-                int affectedRows = DBManager.QueryCommand(sql);
-            }
         }
 
         private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -190,12 +177,6 @@ namespace ReceptMenedzser
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             FormatDataGrid();
-        }
-
-        private void btn_Search_Click(object sender, RoutedEventArgs e)
-        {
-            SearchWindow searchWindow = new SearchWindow();
-            searchWindow.Show();
         }
     }
 }
