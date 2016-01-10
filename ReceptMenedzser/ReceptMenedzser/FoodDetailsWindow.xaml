@@ -7,36 +7,37 @@
         mc:Ignorable="d" Height="640.539" Width="689.923" Topmost="True" ShowInTaskbar="False" Icon="Cook.ico">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="103*"/>
-            <ColumnDefinition Width="579*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="453,77,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+        <Image x:Name="image_FoodImageInDetailsWindow" HorizontalAlignment="Left" Height="100" Margin="556,77,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="label_Group" Content="Group:&#xD;&#xA;" HorizontalAlignment="Left" Margin="17,77,0,0" VerticalAlignment="Top" Height="36"/>
         <Label x:Name="label_SubGroup" Content="SubGroup:&#xA;" HorizontalAlignment="Left" Margin="17,101,0,0" VerticalAlignment="Top" Height="31"/>
-        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" Height="32" Grid.ColumnSpan="2"/>
+        <Label x:Name="label_MainIngredient" Content="Main Ingredient:&#xA;" HorizontalAlignment="Left" Margin="17,121,0,0" VerticalAlignment="Top" Height="32"/>
         <Label x:Name="label_Ingredients" Content="Ingredients:&#xA;" HorizontalAlignment="Left" Margin="17,195,0,0" VerticalAlignment="Top" Height="30"/>
         <Label x:Name="label_Completion" Content="Completion:&#xA;" HorizontalAlignment="Left" Margin="17,325,0,0" VerticalAlignment="Top" Height="44"/>
         <Label x:Name="label_Remark" Content="Remark:&#xA;" HorizontalAlignment="Left" Margin="17,443,0,0" VerticalAlignment="Top" Height="42"/>
-        <ComboBox x:Name="comboB_GroupSelect" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <ComboBox x:Name="comboB_SubGroupSelect" HorizontalAlignment="Left" Height="23" Margin="10,102,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <ComboBox x:Name="comboB_MainIngredientSelect" HorizontalAlignment="Left" Height="23" Margin="10,127,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <TextBox x:Name="textBox_Ingredients" HorizontalAlignment="Left" Height="125" Margin="10,197,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543" Grid.Column="1"/>
-        <TextBox x:Name="textBox_Completion" HorizontalAlignment="Left" Height="113" Margin="10,327,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543" Grid.Column="1"/>
-        <TextBox x:Name="textBox_Remark" HorizontalAlignment="Left" Height="23" Margin="10,445,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543" Grid.Column="1"/>
-        <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Left" Margin="144,77,0,0" VerticalAlignment="Top" Height="40" Grid.Column="1"/>
-        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="144,166,0,0" VerticalAlignment="Top" Height="30" Grid.Column="1"/>
+        <ComboBox x:Name="comboB_GroupSelect" HorizontalAlignment="Left" Height="23" Margin="113,77,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboB_SubGroupSelect" HorizontalAlignment="Left" Height="23" Margin="113,102,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboB_MainIngredientSelect" HorizontalAlignment="Left" Height="23" Margin="113,127,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Ingredients" HorizontalAlignment="Left" Height="125" Margin="113,197,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
+        <TextBox x:Name="textBox_Completion" HorizontalAlignment="Left" Height="113" Margin="113,327,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
+        <TextBox x:Name="textBox_Remark" HorizontalAlignment="Left" Height="23" Margin="113,445,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="543"/>
+        <Label x:Name="label_Preparation" Content="Preparation:&#xA;" HorizontalAlignment="Left" Margin="247,77,0,0" VerticalAlignment="Top" Height="40"/>
+        <Label x:Name="label_Picture" Content="Picture:&#xA;" HorizontalAlignment="Left" Margin="247,166,0,0" VerticalAlignment="Top" Height="30"/>
         <Label x:Name="label_Language" Content="Language:&#xA;" HorizontalAlignment="Left" Margin="17,153,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="5.351,3.273"/>
-        <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Left" Height="85" Margin="219,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Grid.Column="1"/>
-        <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="219,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Grid.Column="1"/>
-        <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="10,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" Grid.Column="1"/>
-        <Button x:Name="btn_closeRecipeDetailWindow" Content="Kilépés" HorizontalAlignment="Left" Margin="478,534,0,0" VerticalAlignment="Top" Width="75" Click="btn_Back_Click" Grid.Column="1"/>
-        <TextBlock x:Name="textBlock_FoodFUllName" HorizontalAlignment="Left" Margin="22,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFF50D0D" Height="53" Width="511" FontSize="16" Grid.ColumnSpan="2"/>
-        <Button x:Name="btn_firstRecipe" Content="Elejére" Grid.Column="1" HorizontalAlignment="Left" Margin="48,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_firstRecipe_Click"/>
-        <Button x:Name="btn_previousRecipe" Content="Vissza" Grid.Column="1" HorizontalAlignment="Left" Margin="158,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_previousRecipe_Click"/>
-        <Button x:Name="btn_nextRecipe" Content="Előre" Grid.Column="1" HorizontalAlignment="Left" Margin="315,485,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="-0.6,0.4" Click="btn_nextRecipe_Click"/>
-        <Button x:Name="btn_lastRecipe" Content="Végére" Grid.Column="1" HorizontalAlignment="Left" Margin="425,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_lastRecipe_Click"/>
-        <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" Grid.Column="1" HorizontalAlignment="Left" Margin="237,520,0,0" VerticalAlignment="Top" Width="105" Click="btn_modifyRecipe_Click"/>
-        <Button x:Name="btn_cancelModificationRecipe" Content="Mégse" Grid.Column="1" HorizontalAlignment="Left" Margin="237,545,0,0" VerticalAlignment="Top" Width="105" Click="btn_cancelModificationRecipe_Click"/>
-        <Label x:Name="label_Revision" Content="revision: 4.0" Grid.Column="1" HorizontalAlignment="Left" Margin="506,2,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Left" Height="85" Margin="322,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
+        <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="322,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
+        <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="113,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52"/>
+        <Button x:Name="btn_closeRecipeDetailWindow" Content="Kilépés" HorizontalAlignment="Left" Margin="581,534,0,0" VerticalAlignment="Top" Width="75" Click="btn_Back_Click"/>
+        <TextBlock x:Name="textBlock_FoodFUllName" HorizontalAlignment="Left" Margin="22,20,149,542" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFF50D0D" Height="52" Width="511" FontSize="16"/>
+        <Button x:Name="btn_firstRecipe" Content="Elejére" HorizontalAlignment="Left" Margin="151,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_firstRecipe_Click"/>
+        <Button x:Name="btn_previousRecipe" Content="Vissza" HorizontalAlignment="Left" Margin="261,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_previousRecipe_Click"/>
+        <Button x:Name="btn_nextRecipe" Content="Előre" HorizontalAlignment="Left" Margin="418,485,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="-0.6,0.4" Click="btn_nextRecipe_Click"/>
+        <Button x:Name="btn_lastRecipe" Content="Végére" HorizontalAlignment="Left" Margin="528,485,0,0" VerticalAlignment="Top" Width="105" Click="btn_lastRecipe_Click"/>
+        <Button x:Name="btn_modifyRecipe" Content="Recept Módosítása" HorizontalAlignment="Left" Margin="340,520,0,0" VerticalAlignment="Top" Width="105" Click="btn_modifyRecipe_Click"/>
+        <Button x:Name="btn_cancelModificationRecipe" Content="Mégse" HorizontalAlignment="Left" Margin="340,545,0,0" VerticalAlignment="Top" Width="105" Click="btn_cancelModificationRecipe_Click"/>
+        <Label x:Name="label_Revision" Content="revision: 4.0" HorizontalAlignment="Left" Margin="599,2,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_Magnifying" Content="NAGYITAS" HorizontalAlignment="Left" Margin="151,531,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="-6.018,24.025"/>
+        <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="10,590,508,0" VerticalAlignment="Bottom" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="8"/>
     </Grid>
 </Window>
