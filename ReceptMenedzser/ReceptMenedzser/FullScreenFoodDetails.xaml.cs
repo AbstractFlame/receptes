@@ -32,7 +32,6 @@ namespace ReceptMenedzser
         private void FillLabels()
         {
             label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
-            btn_QuitFromFUllscreenFoodDetailsWIndow.Content = LanguageManager.TranslateFromDictionary("120");
             label_Group.Content = LanguageManager.TranslateFromDictionary("20");
             label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
             label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");

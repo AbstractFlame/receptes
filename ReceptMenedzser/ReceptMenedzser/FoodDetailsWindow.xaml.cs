@@ -94,7 +94,6 @@ namespace ReceptMenedzser
 
         private void FillLabels()
         {
-            btn_closeRecipeDetailWindow.Content = LanguageManager.TranslateFromDictionary("120");
             label_Group.Content = LanguageManager.TranslateFromDictionary("20");
             label_SubGroup.Content = LanguageManager.TranslateFromDictionary("21");
             label_MainIngredient.Content = LanguageManager.TranslateFromDictionary("22");

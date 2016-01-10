@@ -28,7 +28,7 @@
         <TextBox x:Name="textBox_Preparation" HorizontalAlignment="Left" Height="85" Margin="322,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Picture" HorizontalAlignment="Left" Height="23" Margin="322,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211"/>
         <TextBox x:Name="textBox_Language" HorizontalAlignment="Left" Height="23" Margin="113,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52"/>
-        <Button x:Name="btn_closeRecipeDetailWindow" HorizontalAlignment="Left" Margin="621,579,0,0" VerticalAlignment="Top" Width="35" Click="btn_Back_Click" Height="25">
+        <Button x:Name="btn_closeRecipeDetailWindow" HorizontalAlignment="Left" Margin="621,575,0,0" VerticalAlignment="Top" Width="35" Click="btn_Back_Click" Height="25">
             <Image x:Name="Close_16xLG_png" Height="16" Source="Close_16xLG.png" Stretch="Fill" Width="16"/>
         </Button>
         <TextBlock x:Name="textBlock_FoodFUllName" HorizontalAlignment="Left" Margin="22,20,149,542" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFF50D0D" Height="52" Width="511" FontSize="16"/>
@@ -64,7 +64,7 @@
         </Button>
         <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="10.667"/>
         <Button x:Name="btn_SaveModify" HorizontalAlignment="Left" Margin="391,516,0,0" VerticalAlignment="Top" Width="105" Height="23" Click="btn_SaveModify_Click">
-                <Image x:Name="save_16xLG_png" Height="16" Source="save_16xLG.png" Stretch="Fill" Width="16"/>
+            <Image x:Name="save_16xLG_png" Height="16" Source="save_16xLG.png" Stretch="Fill" Width="16"/>
         </Button>
     </Grid>
 </Window>
