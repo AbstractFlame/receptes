@@ -133,8 +133,7 @@ namespace ReceptMenedzser
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
         {
             ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
-            // TODO make it multilungal!
-            System.Windows.MessageBox.Show("Az importálás sikeresen befejeződött!");
+            System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
         }
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
