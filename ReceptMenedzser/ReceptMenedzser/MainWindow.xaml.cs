@@ -133,7 +133,11 @@ namespace ReceptMenedzser
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
         {
             ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
-            System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
+            // todo
+            //System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
+            // temporary solution:
+            System.Windows.MessageBox.Show("Kész az import!");
+
         }
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -174,6 +178,11 @@ namespace ReceptMenedzser
                 sql += " GROUP BY name";
                 sql += " )";
                 int affectedRows = DBManager.QueryCommand(sql);
+
+                // todo
+                // System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary(""));
+                // temporary solution:
+                System.Windows.MessageBox.Show("Duplikátumok törölve!");
             }
         }
 
