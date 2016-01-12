@@ -61,6 +61,8 @@ namespace ReceptMenedzser
 
         public static void FillTreeView(TreeView treeView)
         {
+            treeView.Items.Clear();
+
             // fILL First item: "All"
             string SQLSubGroupQuery = "select * from recept";
             TreeItem treeItemLevel1 = new TreeItem("-1", SQLSubGroupQuery, 1, "Cook.jpg");
