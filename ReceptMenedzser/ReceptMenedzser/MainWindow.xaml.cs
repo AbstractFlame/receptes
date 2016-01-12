@@ -218,5 +218,17 @@ namespace ReceptMenedzser
             FullScreenFoodDetails w = new FullScreenFoodDetails();
             w.Show();
         }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            LanguageSelectionWindow languageSelectionWindow = new LanguageSelectionWindow();
+            languageSelectionWindow.Show();
+            this.Close();
+        }
+
+        private void btn_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }
