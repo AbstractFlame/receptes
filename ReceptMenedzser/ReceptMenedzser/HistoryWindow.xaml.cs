@@ -42,6 +42,7 @@ namespace ReceptMenedzser
             label_109.Content = LanguageManager.TranslateFromDictionary("109");
             label_115.Content = LanguageManager.TranslateFromDictionary("115");
             label_116.Content = LanguageManager.TranslateFromDictionary("116");
+            label_130.Content = LanguageManager.TranslateFromDictionary("130");
         }
 
         private void btw_BackFromHistoryWindow_Click(object sender, RoutedEventArgs e)

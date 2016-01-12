@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
         mc:Ignorable="d"
-        Title="SearchWindow" Height="615.709" Width="920.948" Icon="Cook.ico" SizeChanged="Window_SizeChanged">
+        Title="Search Window" Height="615.709" Width="920.948" Icon="Cook.ico" SizeChanged="Window_SizeChanged">
 
     <Grid Margin="0,4,2,-5">
         <Grid.RowDefinitions>

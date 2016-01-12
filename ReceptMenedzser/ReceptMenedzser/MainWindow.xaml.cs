@@ -49,6 +49,7 @@ namespace ReceptMenedzser
             label_FelsoSzoveg1_110.Content = LanguageManager.TranslateFromDictionary("110");
             label1_FelsoSZoveg2_112.Content = LanguageManager.TranslateFromDictionary("112");
             label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
+            btn_QuitApp.Content = LanguageManager.TranslateFromDictionary("129");
 
             DataSet dataSet = DBManager.QueryDataSet("SELECT count(*) FROM recept WHERE lang='" + LanguageManager.GetLangShortName() + "'");
             string Darabszam = dataSet.Tables[0].Rows[0][0].ToString();
@@ -133,10 +134,10 @@ namespace ReceptMenedzser
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
         {
             ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
-            // todo
-            //System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
-            // temporary solution:
-            System.Windows.MessageBox.Show("Kész az import!");
+
+            System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
+
+            //System.Windows.MessageBox.Show("Kész az import!");
 
         }
 
