@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReceptMenedzser"
-        mc:Ignorable="d" Height="640.539" Width="689.923" Topmost="True" ShowInTaskbar="False" Icon="Cook.ico" Title="Food Details">
+        mc:Ignorable="d" Height="640.539" Width="689.923" ShowInTaskbar="False" Icon="Cook.ico" Title="Food Details">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
