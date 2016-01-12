@@ -21,10 +21,13 @@ namespace ReceptMenedzser
     public partial class FoodDetailsWindow : Window
     {
         private int currentRecipeIndex;
+        private string[] recipeIds;
         private bool underModification;
 
-        public FoodDetailsWindow()
+        public FoodDetailsWindow(string[] ids, int selectedIndex)
         {
+            recipeIds = ids;
+            currentRecipeIndex = selectedIndex;
             InitializeComponent();
 
             currentRecipeIndex = MainWindow.selectedRecipeIndex;
@@ -245,7 +248,8 @@ namespace ReceptMenedzser
 
         private void btn_Magnifying_Click(object sender, RoutedEventArgs e)
         {
-            FullScreenFoodDetails w = new FullScreenFoodDetails();
+            string recipeId = recipeIds[currentRecipeIndex];
+            FullScreenFoodDetails w = new FullScreenFoodDetails(recipeId);
             w.Show();
         }
     }

@@ -20,8 +20,12 @@ namespace ReceptMenedzser
     /// </summary>
     public partial class FullScreenFoodDetails : Window
     {
-        public FullScreenFoodDetails()
+        private string recipeId;
+
+        public FullScreenFoodDetails(string id)
         {
+            recipeId = id;
+
             InitializeComponent();
 
             UpdateRecipeData();
@@ -60,14 +64,7 @@ namespace ReceptMenedzser
 
         private void UpdateRecipeData()
         {
-            if (MainWindow.selectedRecipeIndex >= MainWindow.recipesLength)
-            {
-                MessageBox.Show("Nincs ilyen recept.");
-                return;
-            }
-
             // RECEPTEKRE VONATKOZO ADATOK NYELVESITESE
-            string recipeId = MainWindow.recipeIds[MainWindow.selectedRecipeIndex];
             DataSet dataSet = DBManager.QueryDataSet("SELECT * FROM recept WHERE rid=" + recipeId);
             DataRow receptDataRow = dataSet.Tables[0].Rows[0];
 

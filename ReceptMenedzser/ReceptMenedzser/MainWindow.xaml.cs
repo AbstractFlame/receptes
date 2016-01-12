@@ -191,8 +191,7 @@ namespace ReceptMenedzser
             if (dataGrid.SelectedIndex == -1)
                 return;
 
-            selectedRecipeIndex = dataGrid.SelectedIndex;
-            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow();
+            FoodDetailsWindow foodDetailsWindow = new FoodDetailsWindow(recipeIds, dataGrid.SelectedIndex);
             foodDetailsWindow.Show();
         }
 
@@ -215,7 +214,8 @@ namespace ReceptMenedzser
                 return;
             }
 
-            FullScreenFoodDetails w = new FullScreenFoodDetails();
+            string recipeId = recipeIds[dataGrid.SelectedIndex];
+            FullScreenFoodDetails w = new FullScreenFoodDetails(recipeId);
             w.Show();
         }
 
