@@ -30,7 +30,6 @@ namespace ReceptMenedzser
             currentRecipeIndex = selectedIndex;
             InitializeComponent();
 
-            currentRecipeIndex = MainWindow.selectedRecipeIndex;
             underModification = false;
             btn_cancelModificationRecipe.Visibility = Visibility.Hidden;
 
