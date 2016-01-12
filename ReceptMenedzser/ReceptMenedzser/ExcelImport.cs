@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 //using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ReceptMenedzser
@@ -10,41 +11,53 @@ namespace ReceptMenedzser
     {
         public static void Import(string fileName)
         {
-            System.Data.OleDb.OleDbConnection myConnection = new System.Data.OleDb.OleDbConnection(
-                        "Provider=Microsoft.ACE.OLEDB.12.0; " +
-                         "data source='" + fileName + "';" +
-                            "Extended Properties=\"Excel 12.0;HDR=YES;IMEX=1\" ");
-            myConnection.Open();
-            DataTable mySheets = myConnection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
-            DataTable dt = makeDataTableFromSheetName(fileName);
-            
-            // If there is only one row (the column names)
-            if (dt.Rows.Count < 2)
-                return;
-
-            String QueryString = "insert into recept (name, lang, acc, group_id, subgroup_id, fo_osszetevo_id, prep, desc, com, foodpic) VALUES";
-            bool emptyRow = false;
-            for (int rCnt = 1; rCnt < dt.Rows.Count && emptyRow == false; rCnt++)
+            try
             {
-                emptyRow = true;
-                string rowSQL = "(";
-                for (int cCnt = 0; cCnt < dt.Columns.Count; cCnt++)
+                System.Data.OleDb.OleDbConnection myConnection = new System.Data.OleDb.OleDbConnection(
+                            "Provider=Microsoft.ACE.OLEDB.12.0; " +
+                             "data source='" + fileName + "';" +
+                                "Extended Properties=\"Excel 12.0;HDR=YES;IMEX=1\" ");
+                myConnection.Open();
+                DataTable mySheets = myConnection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                DataTable dt = makeDataTableFromSheetName(fileName);
+            
+                // If there is only one row (the column names)
+                if (dt.Rows.Count < 2)
+                    return;
+
+                String QueryString = "insert into recept (name, lang, acc, group_id, subgroup_id, fo_osszetevo_id, prep, desc, com, foodpic) VALUES";
+                bool emptyRow = false;
+                for (int rCnt = 1; rCnt < dt.Rows.Count && emptyRow == false; rCnt++)
                 {
-                    string cellValue = dt.Rows[rCnt][cCnt].ToString();
-                    if (cellValue != null)
-                        emptyRow = false;
-                    rowSQL += "'" + cellValue + "',";
+                    emptyRow = true;
+                    string rowSQL = "(";
+                    for (int cCnt = 0; cCnt < dt.Columns.Count; cCnt++)
+                    {
+                        string cellValue = dt.Rows[rCnt][cCnt].ToString();
+                        if (cellValue != null)
+                            emptyRow = false;
+                        rowSQL += "'" + cellValue + "',";
+                    }
+                    if (emptyRow == false)
+                    {
+                        rowSQL = rowSQL.Remove(rowSQL.Length - 1);
+                        rowSQL += "),";
+                        QueryString += rowSQL;
+                    }
                 }
-                if (emptyRow == false)
+                QueryString = QueryString.Remove(QueryString.Length - 1);
+                //MessageBox.Show(QueryString);
+                DBManager.QueryCommand(QueryString);
+            }
+            catch(Exception ex)
+            {
+                if (System.Windows.MessageBox.Show("Az importálás jelenleg nem lehetséges. Az importáláshoz szükséges ingyenes Microsoft szoftver neve: 2007 Office System Driver: Data Connectivity Components. Szeretne most ellátogatni a hivatalos weboldalra, ahol letöltheti a hiányzó szoftvert?", "",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    rowSQL = rowSQL.Remove(rowSQL.Length - 1);
-                    rowSQL += "),";
-                    QueryString += rowSQL;
+                    var url = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=23734";
+                    Process.Start(url);
                 }
             }
-            QueryString = QueryString.Remove(QueryString.Length - 1);
-            //MessageBox.Show(QueryString);
-            DBManager.QueryCommand(QueryString);
         }
 
         private static DataTable makeDataTableFromSheetName(string filename)
