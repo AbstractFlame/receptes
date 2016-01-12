@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows;
 
 namespace ReceptMenedzser
 {
@@ -11,6 +12,19 @@ namespace ReceptMenedzser
     {
         public enum Lang {HUNGARIAN, ENGLISH, GERMAN, SLOVENSKY};
         public static Lang currentLang = Lang.ENGLISH;
+
+        private static string GetTranslated(DataSet dataSet, string sql)
+        {
+            try
+            {
+                return dataSet.Tables[0].Rows[0][0].ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("LanguageManagerManager: nem található a keresett azonositójú sor. \nSQL lekérdezés: " + sql + ".\nRészletes hibaüzenet: " + ex.Message);
+                return "";
+            }
+        }
 
         public static string GetLangShortName()
         {
@@ -88,7 +102,7 @@ namespace ReceptMenedzser
             string sql = "SELECT " + expectedLang + " FROM dictionary WHERE dic_id='" + dictionary_id + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
 
-            return dataSet.Tables[0].Rows[0][0].ToString();
+            return GetTranslated(dataSet, sql);
         }
 
         public static string TranslateCarton(string CartonId)
@@ -116,7 +130,7 @@ namespace ReceptMenedzser
             string sql = "SELECT " + expectedLang + " FROM T_Karton_UJ WHERE Karton_ID='" + CartonId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
 
-            return dataSet.Tables[0].Rows[0][0].ToString();
+            return GetTranslated(dataSet, sql);
         }
 
         public static string TranslateGroup(string groupId)
@@ -144,7 +158,7 @@ namespace ReceptMenedzser
             string sql = "SELECT " + expectedLang + " FROM T_Group WHERE CS_ID='" + groupId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
 
-            return dataSet.Tables[0].Rows[0][0].ToString();
+            return GetTranslated(dataSet, sql);
         }
 
         public static string TranslateSubGroup(string subGroupId)
@@ -172,7 +186,7 @@ namespace ReceptMenedzser
             string sql = "SELECT " + expectedLang + " FROM T_Subgroup WHERE SCS_ID='" + subGroupId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
 
-            return dataSet.Tables[0].Rows[0][0].ToString();
+            return GetTranslated(dataSet, sql);
         }
 
         public static string TranslateIngredient(string ingredientId)
@@ -201,7 +215,7 @@ namespace ReceptMenedzser
             string sql = "SELECT " + expectedLang + " FROM T_Ingredient WHERE SCS_ID='" + ingredientId + "'";
             DataSet dataSet = DBManager.QueryDataSet(sql);
 
-            return dataSet.Tables[0].Rows[0][0].ToString();
+            return GetTranslated(dataSet, sql);
         }
     }
 }
