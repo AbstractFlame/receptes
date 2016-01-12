@@ -49,7 +49,6 @@ namespace ReceptMenedzser
             label_FelsoSzoveg1_110.Content = LanguageManager.TranslateFromDictionary("110");
             label1_FelsoSZoveg2_112.Content = LanguageManager.TranslateFromDictionary("112");
             label_Revision.Content = LanguageManager.TranslateFromDictionary("83");
-            btn_QuitApp.Content = LanguageManager.TranslateFromDictionary("129");
 
             DataSet dataSet = DBManager.QueryDataSet("SELECT count(*) FROM recept WHERE lang='" + LanguageManager.GetLangShortName() + "'");
             string Darabszam = dataSet.Tables[0].Rows[0][0].ToString();

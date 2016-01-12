@@ -41,7 +41,11 @@
             <Image x:Name="Zoom_5442_png" Height="16" Source="Zoom_5442.png" Stretch="Fill" Width="16"/>
         </Button>
         <Label x:Name="label" Content="Copyright  © Kovács Zoltán" HorizontalAlignment="Left" Margin="10,0,0,-8" VerticalAlignment="Top" Width="164" Height="24" FontStyle="Italic" FontWeight="Bold" Foreground="#FFF70707" FontSize="10.667" Grid.ColumnSpan="2" Grid.Row="2"/>
-        <Button x:Name="btn_Exit" HorizontalAlignment="Right" Margin="0,0,5,149" Width="59" Grid.Column="1" Grid.Row="1" Height="44" VerticalAlignment="Bottom" Content="Exit" IsDefault="True" Click="btn_Exit_Click"/>
-        <Button x:Name="btn_Back" HorizontalAlignment="Right" Margin="0,0,67,149" Width="59" Grid.Column="1" Grid.Row="1" Height="44" VerticalAlignment="Bottom" Content="Back" Click="btn_Back_Click"/>
+        <Button x:Name="btn_Exit" HorizontalAlignment="Right" Margin="0,0,5,149" Width="59" Grid.Column="1" Grid.Row="1" Height="44" VerticalAlignment="Bottom" Click="btn_Exit_Click">
+            <Image x:Name="Close_16xLG_png" Height="16" Source="Close_16xLG.png" Stretch="Fill" Width="16"/>
+        </Button>
+        <Button x:Name="btn_Back" HorizontalAlignment="Right" Margin="0,0,67,149" Width="59" Grid.Column="1" Grid.Row="1" Height="44" VerticalAlignment="Bottom" Click="btn_Back_Click">
+            <Image x:Name="Outdent_6494_png" Height="16" Source="Outdent_6494.png" Stretch="Fill" Width="16"/>
+        </Button>
     </Grid>
 </Window>
