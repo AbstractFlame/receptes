@@ -137,9 +137,13 @@ namespace ReceptMenedzser
 
         private void btn_Excel_Import_Click(object sender, RoutedEventArgs e)
         {
-            ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
-            RefreshLayout();
-            System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
+            if (System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("130"), "",
+                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                ExcelImport.Import(System.AppDomain.CurrentDomain.BaseDirectory + "Receptek.xls");
+                RefreshLayout();
+                System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("128"));
+            }
         }
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -155,12 +159,12 @@ namespace ReceptMenedzser
 
         private void btn_Help_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("Help: Ez a funkció jelenleg nem elérhető.");
+            System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("132"));
         }
 
         private void btn_SendMail_Click(object sender, RoutedEventArgs e)
         {
-            if (System.Windows.MessageBox.Show("Megnyissam a levelezőprogramot, hogy levelet írhass kzoli62@gmail.com-nak?", "",
+            if (System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("131"), "",
                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 var url = "mailto:kzoli62@gmail.com";
@@ -212,7 +216,7 @@ namespace ReceptMenedzser
         {
             if (dataGrid.SelectedIndex == -1)
             {
-                System.Windows.MessageBox.Show("Nagyító: Nincs recept kiválasztva.");
+                System.Windows.MessageBox.Show(LanguageManager.TranslateFromDictionary("133"));
                 return;
             }
 
